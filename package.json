@@ -1,0 +1,16 @@
+{
+  "name": "central-de-apoio",
+  "version": "1.0.0",
+  "description": "Central de Apoio Grupo San Marino",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve ."
+  },
+  "keywords": [],
+  "author": "Alberto Mateus",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
