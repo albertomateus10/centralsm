@@ -847,7 +847,6 @@ function obterDadosAcordo() {
     placa: document.getElementById('acordo_placa').value.trim(),
     anoModelo: document.getElementById('acordo_anoModelo').value.trim(),
     chassi: document.getElementById('acordo_chassi').value.trim(),
-    renavam: document.getElementById('acordo_renavam').value.trim(),
     cor: document.getElementById('acordo_cor').value.trim()
   };
 }
@@ -1246,8 +1245,8 @@ function desenharParagrafoJustificadoComNegrito(doc, segments, x, y, maxWidth, i
 function gerarProcuracaoAcordo() {
   const dados = obterDadosAcordo();
 
-  if (!dados.nomeCompleto || !dados.cpfCnpj || !dados.placa || !dados.chassi || !dados.renavam) {
-    showToast('Para a Procuração de Acordo, todos os campos do veículo (Placa, Chassi e Renavam) e do cliente são obrigatórios.', 'error');
+  if (!dados.nomeCompleto || !dados.cpfCnpj || !dados.placa || !dados.chassi) {
+    showToast('Para a Procuração de Acordo, todos os campos do veículo (Placa e Chassi) e do cliente são obrigatórios.', 'error');
     return;
   }
 
@@ -1257,11 +1256,6 @@ function gerarProcuracaoAcordo() {
     return;
   }
 
-  if (dados.renavam && dados.renavam.length !== 11) {
-    validations['acordo_renavam']();
-    showToast('O campo Renavam deve ter exatamente 11 caracteres.', 'error');
-    return;
-  }
 
   const doc = createDocA4();
   const x = PDF_LAYOUT.marginLeft;
@@ -1269,7 +1263,7 @@ function gerarProcuracaoAcordo() {
 
   let {
     nomeCompleto, cpfCnpj, endereco, bairro, cep, cidade, estado,
-    modelo, placa, anoModelo, chassi, renavam, cor
+    modelo, placa, anoModelo, chassi, cor
   } = dados;
 
   anoModelo = formatarAnoModelo(anoModelo);
@@ -1304,7 +1298,6 @@ function gerarProcuracaoAcordo() {
   doc.text(`PLACA: ${upperOr(placa, 'SEM PLACA')}`, x, y); y += 6;
   doc.text(`ANO/MODELO: ${anoModelo || 'NÃO INFORMADO'}`, x, y); y += 6;
   doc.text(`CHASSI: ${upperOr(chassi, 'NÃO INFORMADO')}`, x, y); y += 6;
-  doc.text(`RENAVAM: ${renavam || 'NÃO INFORMADO'}`, x, y); y += 6;
   doc.text(`COR: ${upperOr(cor, 'NÃO INFORMADO')}`, x, y); y += 25;
   doc.setFont('times', 'normal');
 
@@ -1746,7 +1739,6 @@ const validations = {};
 window.addEventListener('DOMContentLoaded', () => {
   // Configurar validações individuais
   validations['acordo_chassi'] = setupFieldValidation('acordo_chassi', 17);
-  validations['acordo_renavam'] = setupFieldValidation('acordo_renavam', 11);
   validations['rec_chassi'] = setupFieldValidation('rec_chassi', 17);
   validations['quit_chassi'] = setupFieldValidation('quit_chassi', 17);
   validations['quit_veiculoAdquiridoChassi'] = setupFieldValidation('quit_veiculoAdquiridoChassi', 17);
