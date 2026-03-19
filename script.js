@@ -2008,9 +2008,17 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Funções para o Modal de Aviso de Construção (Venda Direta)
  */
-function mostrarAvisoConstrucao() {
+function mostrarAvisoConstrucao(tipo) {
     const modal = document.getElementById('modal-construcao');
-    if (modal) {
+    const textoEl = document.getElementById('modal-construcao-texto');
+    
+    if (modal && textoEl) {
+        if (tipo === 'consignacao') {
+            textoEl.textContent = 'O Contrato de Consignação está em construção.';
+        } else {
+            // Padrão ou 'vd'
+            textoEl.textContent = 'O Contrato de Venda Direta está em construção.';
+        }
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Previne scroll
     }

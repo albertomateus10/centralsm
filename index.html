@@ -464,30 +464,12 @@
           <!-- Seção: Venda Direta (Submenu) -->
           <div class="cover hidden col-12" id="secao-venda-direta" style="margin-top: 20px;">
             <div class="cover-grid" style="max-width: 900px; margin: 0 auto;">
-              <a href="javascript:void(0)" onclick="mostrarAvisoConstrucao()" class="cover-btn"
+              <a href="javascript:void(0)" onclick="mostrarAvisoConstrucao('vd')" class="cover-btn"
                 style="text-decoration: none;">
                 <div class="cover-doc-pill">CONTRATO DE VD</div>
               </a>
 
-              <!-- Modal Aviso Construção -->
-              <div id="modal-construcao" class="modal-overlay hidden">
-                <div class="modal-content-premium">
-                  <button class="modal-close" onclick="fecharAvisoConstrucao()" title="Fechar">
-                    <i class="fa-solid fa-xmark"></i>
-                  </button>
-                  <div class="modal-body-premium">
-                    <img src="contrato_em_construcao_1773674178786.png" alt="" class="img-construcao">
-                    <h2 class="modal-title-premium">Contrato em Construção</h2>
-                    <p class="modal-text-premium">
-                      O Contrato de Venda Direta está em construção.
-                    </p>
-                    <div class="modal-badge-premium">
-                      <span class="pulse-dot"></span>
-                      Em breve disponível
-                    </div>
-                  </div>
-                </div>
-              </div>
+
               <a href="https://docs.google.com/spreadsheets/d/1ZXum0nBBdqZSwIddWKTyh5IUswc20KHGdyvB36mGh_Q/edit?usp=sharing"
                 target="_blank" class="cover-btn" style="text-decoration: none;">
                 <div class="cover-doc-pill">INSERIR SEMINOVOS A RECEBER <small
@@ -873,6 +855,10 @@
               <a href="https://albertomateus10.github.io/contratodecompradeveiculos/" target="_blank" class="cover-btn"
                 style="text-decoration: none;">
                 <div class="cover-doc-pill">CONTRATO DE COMPRA DE VEÍCULOS</div>
+              </a>
+              <a href="javascript:void(0)" onclick="mostrarAvisoConstrucao('consignacao')" class="cover-btn"
+                style="text-decoration: none;">
+                <div class="cover-doc-pill">CONTRATO DE CONSIGNAÇÃO DE VEÍCULOS</div>
               </a>
               <a href="https://albertomateus10.github.io/procuracaoderepasse/" target="_blank" class="cover-btn"
                 style="text-decoration: none;">
@@ -1983,6 +1969,26 @@ Por fim, declaro, também, que a aquisição desse veículo está sendo feita pa
           </div>
 
         </section>
+
+        <!-- Modal Aviso Construção -->
+        <div id="modal-construcao" class="modal-overlay hidden">
+          <div class="modal-content-premium">
+            <button class="modal-close" onclick="fecharAvisoConstrucao()" title="Fechar">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body-premium">
+              <img src="contrato_em_construcao_1773674178786.png" alt="" class="img-construcao">
+              <h2 class="modal-title-premium">Contrato em Construção</h2>
+              <p class="modal-text-premium" id="modal-construcao-texto">
+                O Contrato de Venda Direta está em construção.
+              </p>
+              <div class="modal-badge-premium">
+                <span class="pulse-dot"></span>
+                Em breve disponível
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="mobile-footer">
           <span style="font-size: 11px; opacity: 0.8; color: var(--muted);">Desenvolvido por <b>Alberto
               Mateus</b></span>
