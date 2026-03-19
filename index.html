@@ -16,35 +16,41 @@
 
 <body>
   <!-- TELA DE LOGIN -->
-  <div id="login-screen" class="login-screen">
-    <div class="login-container">
-      <div class="login-card">
-        <div class="login-logo">
-          <img src="logobranca.png" alt="Grupo San Marino">
-        </div>
-        <p style="margin-bottom: 5px;">Bem-vindo à Central de Apoio</p>
-        <p style="font-size: 12px; color: rgba(255, 255, 255, 0.4); margin-bottom: 30px; line-height: 1.4;"></p>
-
-        <div class="login-auth-options">
-          <button id="google-login-btn" class="auth-btn google">
-            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
-            Entrar com Google
-          </button>
-        </div>
-
-        <div id="pending-approval" class="pending-approval hidden">
-          <div class="pending-icon">
-            <i class="fa-solid fa-clock-rotate-left"></i>
+  <div id="login-screen" class="login-screen split-layout">
+    <div class="login-left-side">
+      <div class="side-image" style="background-image: url('toro_2026_led.png');"></div>
+    </div>
+    
+    <div class="login-right-side">
+      <div class="login-container">
+        <div class="login-card">
+          <div class="login-logo">
+            <img src="logobranca.png" alt="Grupo San Marino">
           </div>
-          <div id="user-email-pending"
-            style="color: var(--accent); font-weight: bold; margin-bottom: 15px; font-size: 14px;"></div>
-          <h3>Aguardando Aprovação</h3>
-          <p>Seu acesso está sendo analisado pelo administrador do sistema.</p>
-          <button onclick="supabaseClient.auth.signOut()" class="btn-voltar">Sair</button>
-        </div>
+          <p style="margin-bottom: 5px;">Bem-vindo à Central de Apoio</p>
+          <p style="font-size: 12px; color: rgba(255, 255, 255, 0.4); margin-bottom: 30px; line-height: 1.4;"></p>
 
-        <div class="login-footer" style="font-size: 13px; opacity: 0.8;">
-          <span>Desenvolvido por <strong>Alberto Mateus</strong></span>
+          <div class="login-auth-options">
+            <button id="google-login-btn" class="auth-btn google">
+              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+              Entrar com Google
+            </button>
+          </div>
+
+          <div id="pending-approval" class="pending-approval hidden">
+            <div class="pending-icon">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div id="user-email-pending"
+              style="color: var(--accent); font-weight: bold; margin-bottom: 15px; font-size: 14px;"></div>
+            <h3>Aguardando Aprovação</h3>
+            <p>Seu acesso está sendo analisado pelo administrador do sistema.</p>
+            <button onclick="supabaseClient.auth.signOut()" class="btn-voltar">Sair</button>
+          </div>
+
+          <div class="login-footer" style="font-size: 13px; opacity: 0.8;">
+            <span>Desenvolvido por <strong>Alberto Mateus</strong></span>
+          </div>
         </div>
       </div>
     </div>
