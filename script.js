@@ -5,11 +5,22 @@ const SUPABASE_URL = 'https://mbaglidxyqoatoudaywv.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_rDV65MqkhE_2zRszFM98LA_Lp7d3M6-';
 // Google Client ID: 605674763807-00htdje42ank3u1cb6mflolgrc1djept.apps.googleusercontent.com
 
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+  auth: {
+    persistSession: false,
+    autoRefreshToken: true,
+    detectSessionInUrl: true
+  }
+});
 
 // Gerenciamento de Autenticação
 async function verificarUsuario() {
+  // Sempre começa na tela de login por padrão (via index.html ou estado inicial)
+  // Ao carregar a página com persistSession: false, o getSession() retornará null se não houver redirecionamento ativo
   const { data: { session } } = await supabaseClient.auth.getSession();
+  
+  // Se não houver sessão (o que será o normal ao abrir/recarregar a página),
+  // garantimos que a tela de login esteja visível.
   gerenciarEstadoAuth(session);
 }
 
