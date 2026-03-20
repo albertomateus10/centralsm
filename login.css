@@ -18,7 +18,7 @@
 }
 
 .login-left-side {
-    flex: 1.2; /* Define 60% de largura para a foto */
+    flex: 1.1; /* 55% da largura */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -41,36 +41,12 @@
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: top center; /* Mostra o teto da loja */
     background-repeat: no-repeat;
 }
 
-
-
-.side-content {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    animation: fadeInLogin 1s ease-out;
-}
-
-.side-content h2 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    line-height: 1.1;
-}
-
-.side-content p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    max-width: 400px;
-}
-
 .login-right-side {
-    flex: 0.8; /* Define 40% de largura para a área de login */
+    flex: 0.9; /* 45% da largura */
     min-width: 450px;
     display: flex;
     align-items: center;
