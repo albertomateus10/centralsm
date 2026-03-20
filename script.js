@@ -7,7 +7,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_rDV65MqkhE_2zRszFM98LA_Lp7d3M6-';
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
-    persistSession: false,
+    persistSession: true,
     autoRefreshToken: true,
     detectSessionInUrl: true
   }
@@ -15,12 +15,19 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 
 // Gerenciamento de Autenticação
 async function verificarUsuario() {
-  // Sempre começa na tela de login por padrão (via index.html ou estado inicial)
-  // Ao carregar a página com persistSession: false, o getSession() retornará null se não houver redirecionamento ativo
   const { data: { session } } = await supabaseClient.auth.getSession();
   
-  // Se não houver sessão (o que será o normal ao abrir/recarregar a página),
-  // garantimos que a tela de login esteja visível.
+  // Lógica de Expiração Diária
+  const hoje = new Date().toLocaleDateString();
+  const ultimoLogin = localStorage.getItem('central_last_login_date');
+
+  if (session && ultimoLogin && ultimoLogin !== hoje) {
+    console.log('Sessão expirada (mudança de dia). Forçando logout...');
+    await supabaseClient.auth.signOut();
+    gerenciarEstadoAuth(null);
+    return;
+  }
+
   gerenciarEstadoAuth(session);
 }
 
@@ -107,6 +114,9 @@ async function gerenciarEstadoAuth(session) {
 
 // Escutar mudanças de estado (Login/Logout)
 supabaseClient.auth.onAuthStateChange((event, session) => {
+  if (event === 'SIGNED_IN' && session) {
+    localStorage.setItem('central_last_login_date', new Date().toLocaleDateString());
+  }
   gerenciarEstadoAuth(session);
 });
 
