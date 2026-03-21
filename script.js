@@ -7,7 +7,7 @@ const SUPABASE_ANON_KEY = 'sb_publishable_rDV65MqkhE_2zRszFM98LA_Lp7d3M6-';
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
-    persistSession: false,
+    persistSession: true,
     autoRefreshToken: true,
     detectSessionInUrl: true
   }
@@ -15,12 +15,28 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 
 // Gerenciamento de Autenticação
 async function verificarUsuario() {
-  // Sempre começa na tela de login por padrão (via index.html ou estado inicial)
-  // Ao carregar a página com persistSession: false, o getSession() retornará null se não houver redirecionamento ativo
   const { data: { session } } = await supabaseClient.auth.getSession();
   
-  // Se não houver sessão (o que será o normal ao abrir/recarregar a página),
-  // garantimos que a tela de login esteja visível.
+  // Lógica de expiração de 24 horas
+  if (session) {
+    const agora = new Date().getTime();
+    const VINTE_QUATRO_HORAS = 24 * 60 * 60 * 1000;
+    const lastLogin = localStorage.getItem('last_login_timestamp');
+
+    if (lastLogin) {
+      const tempoPassado = agora - parseInt(lastLogin);
+      if (tempoPassado > VINTE_QUATRO_HORAS) {
+        console.log('Sessão expirada (24h). Deslogando...');
+        localStorage.removeItem('last_login_timestamp');
+        await supabaseClient.auth.signOut();
+        return; // onAuthStateChange cuidará da UI
+      }
+    } else {
+      // Se tiver sessão mas não tiver o timestamp (primeira vez após a mudança), define agora
+      localStorage.setItem('last_login_timestamp', agora.toString());
+    }
+  }
+
   gerenciarEstadoAuth(session);
 }
 
@@ -107,6 +123,12 @@ async function gerenciarEstadoAuth(session) {
 
 // Escutar mudanças de estado (Login/Logout)
 supabaseClient.auth.onAuthStateChange((event, session) => {
+  if (event === 'SIGNED_IN' && session) {
+    // Atualiza o timestamp de login quando o usuário entra
+    localStorage.setItem('last_login_timestamp', new Date().getTime().toString());
+  } else if (event === 'SIGNED_OUT') {
+    localStorage.removeItem('last_login_timestamp');
+  }
   gerenciarEstadoAuth(session);
 });
 
