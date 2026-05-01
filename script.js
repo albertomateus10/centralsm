@@ -649,40 +649,17 @@ function abrirDocumento(docId) {
     shell.classList.remove("mobile-open");
   }
 
-  // Se abrir o card de contrato, inicializar com o texto tradicional
+  // Se abrir o card de contrato, inicializar com o texto da Garantia em Dobro
   if (docId === 'doc-contrato') {
-    selecionarModalidade('tradicional');
+    const textarea = document.getElementById('texto-contratual');
+    if (textarea) textarea.value = textoTradicional;
   }
 }
 
 /* =========================
    TEXTO CONTRATUAL
    ========================= */
-const textoOutlet = `Declaro estar ciente de que o veículo adquirido se encontra enquadrado na Modalidade de Venda OUTLET, a qual se caracteriza por condições comerciais diferenciadas com o veículo podendo incluir características estéticas visíveis nas peças de lataria e pneus, desgaste natural compatível com o tempo de uso e demais particularidades previamente informadas e disponíveis para vistoria.
-
-Em razão da natureza desta modalidade de venda OUTLET, declaro estar ciente que a garantia aplicável ao veículo objeto deste contrato será restrita única e exclusivamente aos componentes de MOTOR e CAIXA DE CÂMBIO, pelo prazo legal de 90 (noventa) dias, conforme previsto no artigo 26, inciso II, do Código de Defesa do Consumidor.
-
-Declaro estar ciente que nenhuma outra garantia está inclusa, sendo excluída qualquer cobertura relativa a itens de desgaste natural, peças elétricas, eletrônicas, suspensão, freios, lataria, pintura, sistemas de entretenimento, acessórios, vibrações, avarias decorrentes de uso inadequado ou qualquer outro componente que não seja relacionado a motor e caixa de câmbio.
-
-Declaro que tive oportunidade de vistoriar o veículo antes da compra e que concordo com as condições descritas acima referente a modalidade de venda OUTLET.`;
-
 const textoTradicional = `O Código de Defesa do Consumidor, em seu artigo 26, inciso II, estabelece que o consumidor tem direito a 90 dias de garantia na compra de um veículo seminovo. A San Marino, por meio da campanha GARANTIA EM DOBRO, oferece a você, nosso cliente, 90 dias adicionais, totalizando 180 dias de garantia para o veículo objeto deste contrato. Esta garantia estendida, do dia 91 até o dia 180, abrange única e exclusivamente defeitos no motor e na caixa de câmbio.`;
-
-function selecionarModalidade(modalidade) {
-  const tabTradicional = document.getElementById('tab-tradicional');
-  const tabOutlet = document.getElementById('tab-outlet');
-  const textarea = document.getElementById('texto-contratual');
-
-  if (modalidade === 'tradicional') {
-    tabTradicional.classList.add('active');
-    tabOutlet.classList.remove('active');
-    textarea.value = textoTradicional;
-  } else {
-    tabOutlet.classList.add('active');
-    tabTradicional.classList.remove('active');
-    textarea.value = textoOutlet;
-  }
-}
 
 async function copiarTextoContratual() {
   const textarea = document.getElementById('texto-contratual');
