@@ -681,7 +681,8 @@ function abrirDocumento(docId) {
 /* =========================
    TEXTO CONTRATUAL
    ========================= */
-const textoTradicional = `O Código de Defesa do Consumidor, em seu artigo 26, inciso II, estabelece que o consumidor tem direito a 90 dias de garantia na compra de um veículo seminovo. A San Marino, por meio da campanha GARANTIA EM DOBRO, oferece a você, nosso cliente, 90 dias adicionais, totalizando 180 dias de garantia para o veículo objeto deste contrato. Esta garantia estendida, do dia 91 até o dia 180, abrange única e exclusivamente defeitos no motor e na caixa de câmbio.`;
+const textoTradicional = `Garantia em Dobro:
+O Código de Defesa do Consumidor, em seu artigo 26, inciso II, estabelece que o consumidor tem direito a 90 dias de garantia na compra de um veículo seminovo. A San Marino, por meio da campanha GARANTIA EM DOBRO, oferece a você, nosso cliente, 90 dias adicionais, totalizando 180 dias de garantia para o veículo objeto deste contrato. Esta garantia estendida, do dia 91 até o dia 180, abrange única e exclusivamente defeitos no motor e na caixa de câmbio.`;
 
 async function copiarTextoContratual() {
   const textarea = document.getElementById('texto-contratual');
@@ -701,6 +702,30 @@ async function copiarTextoPersonalizado(btn) {
     showToast('Texto copiado para a área de transferência!', 'success');
   } catch (err) {
     showToast('Erro ao copiar texto.', 'error');
+  }
+}
+
+function toggleTextCard(header) {
+  const card = header.closest('.text-block-card');
+  const content = card.querySelector('.text-block-content-wrapper');
+  const icon = header.querySelector('.toggle-icon');
+  
+  if (content.classList.contains('active')) {
+    content.classList.remove('active');
+    icon.classList.remove('fa-chevron-up');
+    icon.classList.add('fa-chevron-down');
+  } else {
+    // Fechar outros se quiser comportamento de acordeão único
+    // document.querySelectorAll('.text-block-content-wrapper.active').forEach(el => {
+    //   el.classList.remove('active');
+    //   const h = el.closest('.text-block-card').querySelector('.toggle-icon');
+    //   h.classList.remove('fa-chevron-up');
+    //   h.classList.add('fa-chevron-down');
+    // });
+
+    content.classList.add('active');
+    icon.classList.remove('fa-chevron-down');
+    icon.classList.add('fa-chevron-up');
   }
 }
 

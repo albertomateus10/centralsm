@@ -639,200 +639,308 @@
 
           <!-- Seção: Textos para Contrato (NOVO) -->
           <div class="cover hidden col-12" id="secao-textos-contrato" style="margin-top: 20px;">
-            <div class="doc-card" style="max-width: 1000px; margin: 0 auto; background: var(--surface);">
-              <div class="section-title" style="justify-content: center; margin-bottom: 25px;">
-                <i class="fa-solid fa-file-contract"></i>&nbsp; MODELOS DE TEXTOS PARA CONTRATO
-              </div>
+            <style>
+              .text-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 15px;
+                padding: 10px;
+                margin-top: 20px;
+              }
+              .text-box-card {
+                background: #fff;
+                border: 1px solid var(--stroke);
+                border-radius: 12px;
+                padding: 18px 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+                position: relative;
+                overflow: hidden;
+                min-height: 65px;
+              }
+              html[data-theme="dark"] .text-box-card {
+                background: rgba(255, 255, 255, 0.03);
+                border-color: rgba(255, 255, 255, 0.1);
+              }
+              .text-box-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+                border-color: var(--brand);
+                background: var(--brand-soft);
+              }
+              .text-box-card span {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text);
+                line-height: 1.4;
+              }
+              .text-box-card::after {
+                content: '\f054';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                position: absolute;
+                right: 15px;
+                font-size: 10px;
+                color: var(--muted);
+                opacity: 0;
+                transition: all 0.2s;
+              }
+              .text-box-card:hover::after {
+                opacity: 1;
+                right: 12px;
+              }
 
-              <div style="display: flex; flex-direction: column; gap: 20px;">
+              /* Modal Text Viewer */
+              .text-viewer-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                backdrop-filter: blur(4px);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+              }
+              .text-viewer-modal.active {
+                opacity: 1;
+                visibility: visible;
+              }
+              .text-viewer-content {
+                background: var(--surface);
+                width: 90%;
+                max-width: 600px;
+                border-radius: 20px;
+                box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+                transform: scale(0.9);
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                overflow: hidden;
+                border: 1px solid var(--stroke);
+              }
+              .text-viewer-modal.active .text-viewer-content {
+                transform: scale(1);
+              }
+              .text-viewer-header {
+                padding: 20px 25px;
+                border-bottom: 1px solid var(--stroke);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: var(--brand-soft);
+              }
+              .text-viewer-header h3 {
+                margin: 0;
+                font-size: 16px;
+                color: var(--brand);
+                font-weight: 700;
+              }
+              .text-viewer-body {
+                padding: 30px;
+                max-height: 60vh;
+                overflow-y: auto;
+              }
+              .text-viewer-text {
+                font-size: 14px;
+                line-height: 1.7;
+                color: var(--text);
+                white-space: pre-wrap;
+                margin: 0;
+                background: var(--bg);
+                padding: 20px;
+                border-radius: 12px;
+                border: 1px solid var(--stroke);
+              }
+              .text-viewer-footer {
+                padding: 20px 25px;
+                border-top: 1px solid var(--stroke);
+                display: flex;
+                justify-content: flex-end;
+                gap: 12px;
+              }
+              .btn-modal-copy {
+                background: var(--brand);
+                color: #fff;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 10px;
+                font-weight: 600;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.2s;
+              }
+              .btn-modal-copy:hover { transform: scale(1.03); opacity: 0.9; }
+              .btn-modal-close {
+                background: var(--stroke);
+                color: var(--text);
+                border: none;
+                padding: 10px 20px;
+                border-radius: 10px;
+                font-weight: 600;
+                cursor: pointer;
+              }
+            </style>
 
-                <!-- 1-Sem quitação -->
-                <div class="text-block-card">
-                  <div class="text-block-header">
-                    <strong>1-Sem quitação e total utilizado como entrada da nova compra</strong>
-                    <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                      <i class="fa-regular fa-copy"></i> Copiar
-                    </button>
-                  </div>
-                  <div class="text-block-content">
-                    Veículo seminovo_____placa ______ ano/mod _____ com _____ km, avaliado em R$ ______ ,valor total
-                    utilizado como entrada neta negociação.
-                  </div>
+            <div class="doc-card" style="max-width: 1100px; margin: 0 auto; background: var(--surface);">
+
+
+              <div class="text-grid">
+                <!-- Garantia em Dobro -->
+                <div class="text-box-card" onclick="verTextoContrato('garantia')">
+                  <span>Garantia em Dobro</span>
                 </div>
 
-                <!-- 2-Sem quitação e COM troco na troca -->
-                <div class="text-block-card">
-                  <div class="text-block-header">
-                    <strong>2-Sem quitação e COM troco na troca</strong>
-                  </div>
-                  <div style="display: flex; flex-direction: column; gap: 15px; padding: 0 10px;">
-                    <div class="text-block-sub">
-                      <div class="text-block-header sub">
-                        <span>2.1-Parte do valor será utilizado como entrada da nova compra</span>
-                        <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                          <i class="fa-regular fa-copy"></i> Copiar
-                        </button>
-                      </div>
-                      <div class="text-block-content">
-                        Veículo seminovo ______ placa _____ ano/mod _____ com _____ km, avaliado em R$ _____, sendo
-                        utilizado como entrada nesta negociação o valor de R$_____ e a diferença será devolvida ao
-                        cliente no prazo de até 10 dias úteis após entrega do veículo seminovo. Dados bancários do
-                        cliente: Banco ______ Ag. _____ Conta ______.
-                      </div>
-                    </div>
-                    <div class="text-block-sub">
-                      <div class="text-block-header sub">
-                        <span>2.2 Total da avaliação do usado será devolvido ao cliente</span>
-                        <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                          <i class="fa-regular fa-copy"></i> Copiar
-                        </button>
-                      </div>
-                      <div class="text-block-content">
-                        Faz parte deste negociação a compra e venda do veículo seminovo ______ placa _____ ano/mod _____
-                        com _____ km, avaliado em R$ _____, onde o valor avaliado será devolvido integralmente ao
-                        cliente no prazo de até 10 dias úteis após entrega do veículo seminovo. Este veículo deverá ser
-                        entregue com manual, chave reserva, cartão code, livre de Ônus e multas, tendo como data limite
-                        a entrega do veículo adquirido. Dados bancários do cliente: Banco _____ Ag. ______ Conta ______.
-                      </div>
-                    </div>
-                  </div>
+                <!-- 1-Sem quitação -->
+                <div class="text-box-card" onclick="verTextoContrato('sem-quitacao-total')">
+                  <span>Sem quitação (Entrada total)</span>
+                </div>
+
+                <!-- 2-Sem quitação COM troco -->
+                <div class="text-box-card" onclick="verTextoContrato('sem-quitacao-troco')">
+                  <span>Sem quitação (Troco na troca)</span>
                 </div>
 
                 <!-- 3-Com quitação -->
-                <div class="text-block-card">
-                  <div class="text-block-header">
-                    <strong>3-Com quitação</strong>
-                    <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                      <i class="fa-regular fa-copy"></i> Copiar
-                    </button>
-                  </div>
-                  <div class="text-block-content">
-                    Veículo seminovo _____ placa ______ ano/mod ______ com ______ km, avaliado em R$ ______, quitação
-                    sob responsabilidade do cliente, sendo realizada pela San Marino, no prazo de até 10 dias úteis após
-                    entrega do veículo seminovo, no valor de R$ ______, junto ao banco ______. Caso haja diferença no
-                    valor de quitação para mais ou menos, esta deverá ser cobrada ou ressarcida junto ao cliente.
-                  </div>
+                <div class="text-box-card" onclick="verTextoContrato('com-quitacao')">
+                  <span>Com quitação</span>
                 </div>
 
-                <!-- 4-Com quitação e troco na troca -->
-                <div class="text-block-card">
-                  <div class="text-block-header">
-                    <strong>4-Com quitação e troco na troca</strong>
-                    <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                      <i class="fa-regular fa-copy"></i> Copiar
-                    </button>
-                  </div>
-                  <div class="text-block-content">
-                    Veículo seminovo ______ placa ______ ano/mod ______ com ______km, avaliado em R$ ______, quitação
-                    sob responsabilidade do cliente, sendo realizada pela San Marino, no prazo de até 10 dias úteis após
-                    entrega do veículo seminovo, no valor de R$ ______, junto ao banco ______. Diferença no valor de R$
-                    ______ será devolvida ao cliente após quitação do veículo seminovo. Dados bancários do cliente:
-                    Banco ______ Ag. ______ Conta ______.
-                  </div>
+                <!-- 4-Com quitação e troco -->
+                <div class="text-box-card" onclick="verTextoContrato('com-quitacao-troco')">
+                  <span>Com quitação e troco</span>
                 </div>
 
-                <!-- 5-Com quitação de valores superiores ao avaliado -->
-                <div class="text-block-card">
-                  <div class="text-block-header">
-                    <strong>5-Com quitação de valores superiores ao avaliado</strong>
-                    <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                      <i class="fa-regular fa-copy"></i> Copiar
-                    </button>
-                  </div>
-                  <div class="text-block-content">
-                    Veículo seminovo ______ placa _______ ano/mod ______ com ______ km, avaliado em R$ ______, quitação
-                    sob responsabilidade do cliente, sendo realizada pela San Marino, no prazo de até 10 dias úteis após
-                    entrega do veículo seminovo, no valor de R$ ______, junto ao banco ______. Diferença de quitação
-                    paga pelo cliente no valor de R$ ______, caso haja diferença de quitação para mais ou menos, está
-                    será cobrada ou ressarcida ao cliente. Banco ______ Ag. ______ Conta _______.
-                  </div>
+                <!-- 5-Quitação superior -->
+                <div class="text-box-card" onclick="verTextoContrato('quitacao-superior')">
+                  <span>Quitação superior ao avaliado</span>
                 </div>
 
-                <!-- Outros Textos -->
-                <div class="form-grid" style="margin-top: 20px;">
-
-                  <div class="text-block-card small">
-                    <div class="text-block-header">
-                      <strong>Texto Bônus Lovers</strong>
-                      <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                        <i class="fa-regular fa-copy"></i>
-                      </button>
-                    </div>
-                    <div class="text-block-content">
-                      APLICADO DESCONTO DE R$ XXX,00 REFERENTE AO BÔNUS FIAT LOVERS
-                    </div>
-                  </div>
-
-                  <div class="text-block-card small">
-                    <div class="text-block-header">
-                      <strong>Texto de Entrega</strong>
-                      <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                        <i class="fa-regular fa-copy"></i>
-                      </button>
-                    </div>
-                    <div class="text-block-content">
-                      ENTREGA EM ATE SETE DIAS UTEIS APOS A EMISSÃO DA NOTA FISCAL E CHEGADA DE VEICULO EM ESTOQUE
-                      FÍSICO
-                    </div>
-                  </div>
-
-                  <div class="text-block-card small">
-                    <div class="text-block-header">
-                      <strong>Entrega com Consórcio</strong>
-                      <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                        <i class="fa-regular fa-copy"></i>
-                      </button>
-                    </div>
-                    <div class="text-block-content">
-                      ENTREGA EM ATE SETE DIAS UTEIS APOS A EMISSÃO DA NOTA FISCAL E CHEGADA DE VEICULO EM ESTOQUE
-                      FÍSICO E LIBERAÇÃO DOS RECURSOS POR PARTE DA ADMINISTRADORA DE CONSORCIO.
-                    </div>
-                  </div>
-
-                  <div class="text-block-card small">
-                    <div class="text-block-header">
-                      <strong>Contrato com SPF</strong>
-                      <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                        <i class="fa-regular fa-copy"></i>
-                      </button>
-                    </div>
-                    <div class="text-block-content">
-                      DECLARO ESTAR CIENTE DE QUE MEU CONTRATO DE FINANCIAMENTO, JUNTO AO BANCO ___, VINCULADO A 
-                      AQUISIÇÃO DO VEICULO ____, INCLUI O SEGURO DE PROTEÇÃO FINANCEIRA, PRESTADO POR INSTITUIÇÃO
-                      CONVENIADA E QUE ME FORAM PRESTADOS TODOS OS ESCLARECIMENTOS A RESPEITO DO REFERIDO SEGURO.
-                    </div>
-                  </div>
-
-                  <div class="text-block-card small">
-                    <div class="text-block-header">
-                      <strong>Cartão de Crédito com taxa</strong>
-                      <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                        <i class="fa-regular fa-copy"></i>
-                      </button>
-                    </div>
-                    <div class="text-block-content">
-                      CLIENTE PAGA R$_____,00 NO CARTÃO EM __ X SENDO R$_____,00 REFERENTE A (IPVA, Emplacamento,
-                      Entrada e etc …) E R$____,00 REFERENTE A TAXA ADM DO CARTÃO, CLIENTE CONCORDA COM A TAXA.
-                    </div>
-                  </div>
-
-                  <div class="text-block-card small">
-                    <div class="text-block-header">
-                      <strong>Cartão com taxa cortesia</strong>
-                      <button class="btn-copy-text" onclick="copiarTextoPersonalizado(this)">
-                        <i class="fa-regular fa-copy"></i>
-                      </button>
-                    </div>
-                    <div class="text-block-content">
-                      CLIENTE PAGA R$_____,00 NO CARTÃO EM __ X, REFERENTE A (IPVA, Emplacamento, Entrada e etc …), TAXA
-                      ADM DO CARTÃO CORTESIA SAN MARINO.
-                    </div>
-                  </div>
-
+                <!-- Bônus Fiat Lovers -->
+                <div class="text-box-card" onclick="verTextoContrato('bonus-lovers')">
+                  <span>Bônus Fiat Lovers</span>
                 </div>
 
+                <!-- Entrega -->
+                <div class="text-box-card" onclick="verTextoContrato('entrega')">
+                  <span>Texto de Entrega</span>
+                </div>
+
+                <!-- SPF -->
+                <div class="text-box-card" onclick="verTextoContrato('spf')">
+                  <span>Contrato com SPF</span>
+                </div>
+
+                <!-- Cartão com taxa -->
+                <div class="text-box-card" onclick="verTextoContrato('cartao-taxa')">
+                  <span>Cartão de Crédito com taxa</span>
+                </div>
               </div>
             </div>
+
+            <!-- Modal Viewer -->
+            <div id="modal-text-viewer" class="text-viewer-modal">
+              <div class="text-viewer-content">
+                <div class="text-viewer-header">
+                  <h3 id="tv-title">Título do Texto</h3>
+                  <button class="btn-close-modal" onclick="fecharViewer()" style="background:none; border:none; cursor:pointer; font-size:18px; color:var(--muted);"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="text-viewer-body">
+                  <p id="tv-text" class="text-viewer-text"></p>
+                </div>
+                <div class="text-viewer-footer">
+                  <button class="btn-modal-close" onclick="fecharViewer()">Fechar</button>
+                  <button class="btn-modal-copy" onclick="copiarDoViewer()">
+                    <i class="fa-regular fa-copy"></i> Copiar Texto
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <script>
+              const TEXTOS_CONTRATO = {
+                'garantia': {
+                  title: 'Garantia em Dobro',
+                  content: 'Garantia em Dobro:\nO Código de Defesa do Consumidor, em seu artigo 26, inciso II, estabelece que o consumidor tem direito a 90 dias de garantia na compra de um veículo seminovo. A San Marino, por meio da campanha GARANTIA EM DOBRO, oferece a você, nosso cliente, 90 dias adicionais, totalizando 180 dias de garantia para o veículo objeto deste contrato. Esta garantia estendida, do dia 91 até o dia 180, abrange única e exclusivamente defeitos no motor e na caixa de câmbio.'
+                },
+                'sem-quitacao-total': {
+                  title: 'Sem quitação (Entrada total)',
+                  content: 'Veículo seminovo_____placa ______ ano/mod _____ com _____ km, avaliado em R$ ______ ,valor total utilizado como entrada neta negociação.'
+                },
+                'sem-quitacao-troco': {
+                  title: 'Sem quitação (Troco na troca)',
+                  content: 'OPÇÃO 2.1:\nVeículo seminovo ______ placa _____ ano/mod _____ com _____ km, avaliado em R$ _____, sendo utilizado como entrada nesta negociação o valor de R$_____ e a diferença será devolvida ao cliente no prazo de até 10 dias úteis após entrega do veículo seminovo. Dados bancários do cliente: Banco ______ Ag. _____ Conta ______.\n\nOPÇÃO 2.2:\nFaz parte deste negociação a compra e venda do veículo seminovo ______ placa _____ ano/mod _____ com _____ km, avaliado em R$ _____, onde o valor avaliado será devolvido integralmente ao cliente no prazo de até 10 dias úteis após entrega do veículo seminovo. Este veículo deverá ser entregue com manual, chave reserva, cartão code, livre de Ônus e multas, tendo como data limite a entrega do veículo adquirido. Dados bancários do cliente: Banco _____ Ag. ______ Conta ______.'
+                },
+                'com-quitacao': {
+                  title: 'Com quitação',
+                  content: 'Veículo seminovo _____ placa ______ ano/mod ______ com ______ km, avaliado em R$ ______, quitação sob responsabilidade do cliente, sendo realizada pela San Marino, no prazo de até 10 dias úteis após entrega do veículo seminovo, no valor de R$ ______, junto ao banco ______. Caso haja diferença no valor de quitação para mais ou menos, esta deverá ser cobrada ou ressarcida junto ao cliente.'
+                },
+                'com-quitacao-troco': {
+                  title: 'Com quitação e troco na troca',
+                  content: 'Veículo seminovo ______ placa ______ ano/mod ______ com ______km, avaliado em R$ ______, quitação sob responsabilidade do cliente, sendo realizada pela San Marino, no prazo de até 10 dias úteis após entrega do veículo seminovo, no valor de R$ ______, junto ao banco ______. Diferença no valor de R$ ______ será devolvida ao cliente após quitação do veículo seminovo. Dados bancários do cliente: Banco ______ Ag. ______ Conta ______.'
+                },
+                'quitacao-superior': {
+                  title: 'Quitação superior ao avaliado',
+                  content: 'Veículo seminovo ______ placa _______ ano/mod ______ com ______ km, avaliado em R$ ______, quitação sob responsabilidade do cliente, sendo realizada pela San Marino, no prazo de até 10 dias úteis após entrega do veículo seminovo, no valor de R$ ______, junto ao banco ______. Diferença de quitação paga pelo cliente no valor de R$ ______, caso haja diferença de quitação para mais ou menos, está será cobrada ou ressarcida ao cliente. Banco ______ Ag. ______ Conta _______.'
+                },
+                'bonus-lovers': {
+                  title: 'Bônus Fiat Lovers',
+                  content: 'APLICADO DESCONTO DE R$ XXX,00 REFERENTE AO BÔNUS FIAT LOVERS'
+                },
+                'entrega': {
+                  title: 'Texto de Entrega',
+                  content: 'ENTREGA EM ATE SETE DIAS UTEIS APOS A EMISSÃO DA NOTA FISCAL E CHEGADA DE VEICULO EM ESTOQUE FÍSICO'
+                },
+                'spf': {
+                  title: 'Contrato com SPF',
+                  content: 'DECLARO ESTAR CIENTE DE QUE MEU CONTRATO DE FINANCIAMENTO, JUNTO AO BANCO ___, VINCULADO A  AQUISIÇÃO DO VEICULO ____, INCLUI O SEGURO DE PROTEÇÃO FINANCEIRA, PRESTADO POR INSTITUIÇÃO CONVENIADA E QUE ME FORAM PRESTADOS TODOS OS ESCLARECIMENTOS A RESPEITO DO REFERIDO SEGURO.'
+                },
+                'cartao-taxa': {
+                  title: 'Cartão de Crédito com taxa',
+                  content: 'CLIENTE PAGA R$_____,00 NO CARTÃO EM __ X SENDO R$_____,00 REFERENTE A (IPVA, Emplacamento, Entrada e etc …) E R$____,00 REFERENTE A TAXA ADM DO CARTÃO, CLIENTE CONCORDA COM A TAXA.'
+                }
+              };
+
+              function verTextoContrato(key) {
+                const data = TEXTOS_CONTRATO[key];
+                if (!data) return;
+                
+                document.getElementById('tv-title').innerText = data.title;
+                document.getElementById('tv-text').innerText = data.content;
+                document.getElementById('modal-text-viewer').classList.add('active');
+              }
+
+              function fecharViewer() {
+                document.getElementById('modal-text-viewer').classList.remove('active');
+              }
+
+              function copiarDoViewer() {
+                const text = document.getElementById('tv-text').innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                  if (typeof showToast === 'function') {
+                    showToast('Texto copiado com sucesso!', 'success');
+                  } else {
+                    alert('Texto copiado!');
+                  }
+                  fecharViewer();
+                });
+              }
+
+              // Fechar modal ao clicar fora
+              document.getElementById('modal-text-viewer').addEventListener('click', function(e) {
+                if (e.target === this) fecharViewer();
+              });
+            </script>
           </div>
 
           <!-- Seção: Gestor (Submenu) -->
