@@ -14,27 +14,26 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 });
 
 // Gerenciamento de Autenticação
+// Função para verificar se está dentro do horário permitido (07:30 às 20:00)
+function verificarHorarioAcesso() {
+  const agora = new Date();
+  const hora = agora.getHours();
+  const minutos = agora.getMinutes();
+  const tempoAtual = hora * 60 + minutos;
+
+  const inicio = 7 * 60 + 30; // 07:30
+  const fim = 20 * 60;      // 20:00
+
+  return tempoAtual >= inicio && tempoAtual < fim;
+}
+
 async function verificarUsuario() {
   const { data: { session } } = await supabaseClient.auth.getSession();
   
-  // Lógica de expiração de 24 horas
-  if (session) {
-    const agora = new Date().getTime();
-    const VINTE_QUATRO_HORAS = 24 * 60 * 60 * 1000;
-    const lastLogin = localStorage.getItem('last_login_timestamp');
-
-    if (lastLogin) {
-      const tempoPassado = agora - parseInt(lastLogin);
-      if (tempoPassado > VINTE_QUATRO_HORAS) {
-        console.log('Sessão expirada (24h). Deslogando...');
-        localStorage.removeItem('last_login_timestamp');
-        await supabaseClient.auth.signOut();
-        return; // onAuthStateChange cuidará da UI
-      }
-    } else {
-      // Se tiver sessão mas não tiver o timestamp (primeira vez após a mudança), define agora
-      localStorage.setItem('last_login_timestamp', agora.toString());
-    }
+  // Login agora é permanente (removida lógica de 24h)
+  // Apenas garantimos que o timestamp exista para referência, se necessário
+  if (session && !localStorage.getItem('last_login_timestamp')) {
+    localStorage.setItem('last_login_timestamp', new Date().getTime().toString());
   }
 
   gerenciarEstadoAuth(session);
@@ -93,8 +92,25 @@ async function gerenciarEstadoAuth(session) {
   const pendingScreen = document.getElementById('pending-approval');
   const googleOptions = document.querySelector('.login-auth-options');
   const emailDisplay = document.getElementById('user-email-pending');
+  const closedScreen = document.getElementById('closed-screen');
 
-  // BYPASS PARA TESTE LOCAL (Apenas para ver o layout)
+  // 1. Verificação de Horário Comercial (07:30 - 20:00)
+  if (!verificarHorarioAcesso()) {
+    if (loginScreen) loginScreen.style.display = 'none';
+    if (appContainer) appContainer.style.display = 'none';
+    if (closedScreen) {
+      closedScreen.style.display = 'flex';
+      closedScreen.classList.remove('hidden');
+    }
+    return;
+  } else {
+    if (closedScreen) {
+      closedScreen.style.display = 'none';
+      closedScreen.classList.add('hidden');
+    }
+  }
+
+  // 2. Lógica de Autenticação
   const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
   const devMode = new URLSearchParams(window.location.search).has('dev');
 
@@ -135,6 +151,12 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
 // Eventos de Click para Login
 window.addEventListener('load', () => {
   verificarUsuario();
+
+  // Verificação em tempo real a cada minuto para bloqueio automático às 20:00
+  setInterval(async () => {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    gerenciarEstadoAuth(session);
+  }, 60000);
 
   const btnGoogle = document.getElementById('google-login-btn');
   if (btnGoogle) {

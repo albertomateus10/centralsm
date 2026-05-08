@@ -121,6 +121,14 @@
     margin-bottom: 30px;
 }
 
+.login-welcome-text {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 18px !important;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 24px !important;
+}
+
 .login-auth-options {
     display: flex;
     flex-direction: column;

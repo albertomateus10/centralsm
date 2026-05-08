@@ -27,7 +27,7 @@
           <div class="login-logo">
             <img src="logobranca.png" alt="Grupo San Marino">
           </div>
-          <p style="margin-bottom: 5px;">Bem-vindo à Central de Apoio</p>
+          <p class="login-welcome-text">Bem-vindo à Central de Apoio</p>
           <p style="font-size: 12px; color: rgba(255, 255, 255, 0.4); margin-bottom: 30px; line-height: 1.4;"></p>
 
           <div class="login-auth-options">
@@ -52,6 +52,23 @@
             <span>Desenvolvido por <strong>Alberto Mateus</strong></span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- TELA DE FORA DO HORÁRIO -->
+  <div id="closed-screen" class="login-screen hidden" style="background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); display: none; align-items: center; justify-content: center; z-index: 10000;">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="pending-icon" style="color: #64748b; font-size: 50px; margin-bottom: 20px;">
+          <i class="fa-solid fa-moon"></i>
+        </div>
+        <h3 style="color: #fff; font-size: 24px; margin-bottom: 15px; font-weight: 700;">Sistema Indisponível</h3>
+        <p style="color: rgba(255, 255, 255, 0.7); font-size: 15px; line-height: 1.6; max-width: 320px; margin: 0 auto;">
+          A Central de Apoio funciona diariamente das <strong style="color: #fff;">07:30 às 20:00</strong>.
+          <br><br>
+          Por favor, retorne durante o horário de atendimento.
+        </p>
       </div>
     </div>
   </div>
@@ -894,31 +911,47 @@ Por fim, declaro, também, que a aquisição desse veículo está sendo feita pa
 
           <!-- Seção: Pós Vendas (Submenu) -->
           <div class="cover hidden col-12" id="secao-pos-vendas" style="margin-top: 20px;">
-            <div class="cover-grid" style="max-width: 900px; margin: 0 auto;">
-              <a href="https://servicos.fiat.com.br/revisao.html" target="_blank" class="cover-btn"
-                style="text-decoration: none;">
-                <div class="cover-doc-pill">PREÇO DAS REVISÕES (Fiat)</div>
-              </a>
-              <a href="https://drive.google.com/drive/folders/1pVktoHOniUgT5LQfnjxWhDGAB1r3-LVn" target="_blank"
-                class="cover-btn" style="text-decoration: none;">
-                <div class="cover-doc-pill">NORMAS DA GARANTIA</div>
-              </a>
-              <a href="https://drive.google.com/drive/folders/1dn-1v52zMjZCnBZRgHCkAdViAOBfOG2b" target="_blank"
-                class="cover-btn" style="text-decoration: none;">
-                <div class="cover-doc-pill">APOIO AO CONSULTOR</div>
-              </a>
-              <a href="https://drive.google.com/drive/folders/1alytD0dOACelokORixMLNd99Ixe77han" target="_blank"
-                class="cover-btn" style="text-decoration: none;">
-                <div class="cover-doc-pill">APOIO AO MECÂNICO</div>
-              </a>
-              <a href="https://albertomateus10.github.io/pdfsdomes/fichacadastralpecas.pdf" target="_blank"
-                class="cover-btn" style="text-decoration: none;">
-                <div class="cover-doc-pill">FICHA CADASTRAL</div>
-              </a>
-              <a href="https://www.mercadolivre.com.br/loja/san-marino-297048" target="_blank" class="cover-btn"
-                style="text-decoration: none;">
-                <div class="cover-doc-pill"><i class="fa-solid fa-store"></i>&nbsp; Loja no Mercado Livre</div>
-              </a>
+            
+            <!-- Grupo: Outros Documentos e Consultas -->
+            <div class="category-group" style="margin-bottom: 30px;">
+              <div class="elegant-subtitle" style="margin-bottom: 15px;">Documentos e Consultas</div>
+              <div class="cover-grid" style="max-width: 900px; margin: 0 auto;">
+                <a href="https://servicos.fiat.com.br/revisao.html" target="_blank" class="cover-btn"
+                  style="text-decoration: none;">
+                  <div class="cover-doc-pill">PREÇO DAS REVISÕES (Fiat)</div>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1dn-1v52zMjZCnBZRgHCkAdViAOBfOG2b" target="_blank"
+                  class="cover-btn" style="text-decoration: none;">
+                  <div class="cover-doc-pill">APOIO AO CONSULTOR</div>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1alytD0dOACelokORixMLNd99Ixe77han" target="_blank"
+                  class="cover-btn" style="text-decoration: none;">
+                  <div class="cover-doc-pill">APOIO AO MECÂNICO</div>
+                </a>
+                <a href="https://albertomateus10.github.io/pdfsdomes/fichacadastralpecas.pdf" target="_blank"
+                  class="cover-btn" style="text-decoration: none;">
+                  <div class="cover-doc-pill">FICHA CADASTRAL</div>
+                </a>
+                <a href="https://www.mercadolivre.com.br/loja/san-marino-297048" target="_blank" class="cover-btn"
+                  style="text-decoration: none;">
+                  <div class="cover-doc-pill"><i class="fa-solid fa-store"></i>&nbsp; Loja no Mercado Livre</div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Grupo: Apoio a Garantia -->
+            <div class="category-group">
+              <div class="elegant-subtitle" style="margin-bottom: 15px;">Apoio a Garantia</div>
+              <div class="cover-grid" style="max-width: 900px; margin: 0 auto;">
+                <a href="https://drive.google.com/file/d/1k1Q1OsH81DSLrh8GUVHE_bJaSQ2c5iOA/view?usp=sharing" target="_blank"
+                  class="cover-btn" style="text-decoration: none;">
+                  <div class="cover-doc-pill">MANUAL DE GARANTIA</div>
+                </a>
+                <a href="https://drive.google.com/file/d/1TkonC-50z83f7yRd0YquwbzxnUrLm2vT/view?usp=sharing" target="_blank"
+                  class="cover-btn" style="text-decoration: none;">
+                  <div class="cover-doc-pill">NORMAS DA GARANTIA</div>
+                </a>
+              </div>
             </div>
           </div>
 
