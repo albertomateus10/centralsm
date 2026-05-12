@@ -192,22 +192,159 @@ const LS_SIDEBAR = "central_sidebar_collapsed";
 const LS_FAVORITE = "central_favoritos_v2"; // Nova chave para array
 
 const MODULE_METADATA = {
-  'gerador': { title: 'Gerador de Documentos', desc: 'Crie procurações, termos e declarações rapidamente.' },
-  'rh': { title: 'RH / DP', desc: 'Cartilha de integração, carta de férias e ajuste de ponto.' },
-  'venda-direta': { title: 'Venda Direta', desc: 'Links e sistemas exclusivos para VD.' },
-  'calculadora': { title: 'Calculadora (juros do cartão)', desc: 'Simulações de financiamento e parcelas.' },
-  'bancos': { title: 'Portais dos Bancos', desc: 'Acesso rápido aos portais das financeiras.' },
-  'plataformas': { title: 'Sistemas', desc: 'DocuSign, AutoAvaliar, Dugestão e outros.' },
-  'seminovos': { title: 'Seminovos', desc: 'Estoque, termos de repasse e robô de anúncios.' },
-  'textos-contrato': { title: 'Textos para Contrato', desc: 'Modelos de cláusulas e textos legais para contratos de veículos.' },
-  'lojas': { title: 'Localização das Lojas', desc: 'Endereços e links de GPS para clientes.' },
-  'gestor': { title: 'Acessos Gestor', desc: 'NBS Shortcut, BI de Avaliações e Leilão.' },
-  'certidoes': { title: 'Emitir Certidões', desc: 'Links para emissão de certidões negativas e CND.' },
-  'acessorios': { title: 'Catálogo de Acessórios', desc: 'Acesse os catálogos completos de acessórios originais.' },
+  // Módulos Principais
+  'gerador': { title: 'Gerador de Documentos', desc: 'Crie procurações, termos e declarações rapidamente.', type: 'section' },
+  'rh': { title: 'RH / DP', desc: 'Cartilha de integração, carta de férias e ajuste de ponto.', type: 'section' },
+  'venda-direta': { title: 'Venda Direta', desc: 'Links e sistemas exclusivos para VD.', type: 'section' },
+  'calculadora': { title: 'Calculadora (juros do cartão)', desc: 'Simulações de financiamento e parcelas.', type: 'section' },
+  'bancos': { title: 'Portais dos Bancos', desc: 'Acesso rápido aos portais das financeiras.', type: 'section' },
+  'plataformas': { title: 'Sistemas', desc: 'DocuSign, AutoAvaliar, Dugestão e outros.', type: 'section' },
+  'seminovos': { title: 'Seminovos', desc: 'Estoque, termos de repasse e robô de anúncios.', type: 'section' },
+  'textos-contrato': { title: 'Textos para Contrato', desc: 'Modelos de cláusulas e textos legais para contratos de veículos.', type: 'section' },
+  'lojas': { title: 'Localização das Lojas', desc: 'Endereços e links de GPS para clientes.', type: 'section' },
+  'gestor': { title: 'Acessos Gestor', desc: 'NBS Shortcut, BI de Avaliações e Leilão.', type: 'section' },
+  'certidoes': { title: 'Emitir Certidões', desc: 'Links para emissão de certidões negativas e CND.', type: 'section' },
+  'acessorios': { title: 'Catálogo de Acessórios', desc: 'Acesse os catálogos completos de acessórios originais.', type: 'section' },
+  'links': { title: 'Links Úteis', desc: 'Atalhos importantes para o dia a dia do vendedor.', type: 'section' },
+  'cartas': { title: 'Zero KM', desc: 'Acessos e informações diretas da fábrica/montadora.', type: 'section' },
+  'pos-vendas': { title: 'Pós Vendas', desc: 'Sistemas e links de suporte após a venda.', type: 'section' },
 
-  'links': { title: 'Links Úteis', desc: 'Atalhos importantes para o dia a dia do vendedor.' },
-  'cartas': { title: 'Zero KM', desc: 'Acessos e informações diretas da fábrica/montadora.' },
-  'pos-vendas': { title: 'Pós Vendas', desc: 'Sistemas e links de suporte após a venda.' },
+  // Itens Internos - Gerador
+  'btn-doc-recebimento': { title: 'PROCURAÇÃO DE RECEBIMENTO', type: 'doc', action: 'doc-recebimento' },
+  'btn-doc-acordo': { title: 'PROCURAÇÃO DE ACORDO', type: 'doc', action: 'doc-acordo' },
+  'btn-doc-instrumento': { title: 'INSTRUMENTO DE RESPONSABILIDADE', type: 'doc', action: 'doc-instrumento' },
+  'btn-doc-quitacao': { title: 'TERMO DE QUITAÇÃO', type: 'doc', action: 'doc-quitacao' },
+  'btn-doc-residencia': { title: 'DECLARAÇÃO DE RESIDÊNCIA', type: 'doc', action: 'doc-residencia' },
+  'btn-doc-deposito': { title: 'DECLARAÇÃO DE DEPÓSITO', type: 'doc', action: 'doc-deposito' },
+  'btn-doc-orcamento': { title: 'ORÇAMENTO DE DETRAN', type: 'doc', action: 'doc-orcamento' },
+  'btn-doc-test-drive': { title: 'Termo de Test Drive', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/Termo_de_Responsabilidade_do_Test_Drive.xlsx' },
+  'btn-doc-retirada': { title: 'Autorização de retirada por Terceiros', type: 'link', action: 'https://github.com/albertomateus10/pdfsdomes/raw/main/autorzacaoretiradaterceiros.doc' },
+
+  // Itens Internos - Bancos
+  'btn-banco-psa': { title: 'BANCO PSA', type: 'link', action: 'https://autofacil.stellantisfinanciamentos.com.br/login' },
+  'btn-banco-volks': { title: 'BANCO VOLKS', type: 'link', action: 'https://digital.bancovw.com.br/FrontEnd/login' },
+  'btn-banco-itau': { title: 'BANCO ITAÚ', type: 'link', action: 'https://www.credlineitau.com.br/' },
+  'btn-banco-bradesco': { title: 'BANCO BRADESCO', type: 'link', action: 'https://financiamentos.bradesco/financiamentos/' },
+  'btn-banco-safra': { title: 'BANCO SAFRA', type: 'link', action: 'https://financeira.safra.com.br/portal-veiculos/login' },
+  'btn-banco-c6': { title: 'BANCO C6 AUTO', type: 'link', action: 'https://c6auto.com.br/originacaolojista/login' },
+  'btn-banco-bv': { title: 'BANCO BV', type: 'link', action: 'https://parceiro.bv.com.br/ng-gpar-base-login/#' },
+  'btn-banco-pan': { title: 'BANCO PAN', type: 'link', action: 'https://veiculos.bancopan.com.br/login' },
+
+  // Itens Internos - Certidões
+  'btn-cert-judicial': { title: 'CERTIDÃO JUDICIAL', type: 'link', action: 'https://www2.trf4.jus.br/trf4/processos/certidao/index.php?string_cpf=01525186060' },
+  'btn-cert-trabalhista': { title: 'CERTIDÃO TRABALHISTA', type: 'link', action: 'https://www.tst.jus.br/certidao1' },
+  'btn-cert-tjrs': { title: 'CERTIDÃO ANTECEDENTES TJRS', type: 'link', action: 'https://www.tjrs.jus.br/novo/processos-e-servicos/servicos-processuais/emissao-de-antecedentes-e-certidoes/' },
+  'btn-cert-trt4': { title: 'CERTIDÕES TRT4', type: 'link', action: 'https://pje.trt4.jus.br/certidoes/inicio' },
+  'btn-cert-federal': { title: 'CERTIDÃO REGULARIDADE FISCAL', type: 'link', action: 'https://servicos.receitafederal.gov.br/servico/certidoes/#/home' },
+
+  // Itens Internos - Venda Direta
+  'btn-vd-contrato': { title: 'CONTRATO DE VD', type: 'function', action: () => mostrarAvisoConstrucao('vd') },
+  'btn-vd-estoque': { title: 'SEMINOVOS A RECEBER', type: 'link', action: 'https://docs.google.com/spreadsheets/d/1ZXum0nBBdqZSwIddWKTyh5IUswc20KHGdyvB36mGh_Q/edit?usp=sharing' },
+  'btn-vd-cnpj': { title: 'CARTÃO CNPJ', type: 'link', action: 'https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp' },
+  'btn-vd-ie': { title: 'INSCRIÇÃO ESTADUAL', type: 'link', action: 'https://www.sefaz.rs.gov.br/consultas/contribuinte' },
+  'btn-vd-ie-prod': { title: 'IE PRODUTOR RURAL', type: 'link', action: 'https://dfe-portal.svrs.rs.gov.br/cte/ccc?origem=2' },
+  'btn-vd-bndes-fio': { title: 'BNDES FIORINO', type: 'link', action: 'https://ws.bndes.gov.br/cfi_catalogo/produto/04281040' },
+  'btn-vd-bndes-str-f': { title: 'BNDES STRADA FREEDOM', type: 'link', action: 'https://ws.bndes.gov.br/cfi_catalogo/produto/04260579' },
+  'btn-vd-bndes-str-e': { title: 'BNDES STRADA ENDURANCE', type: 'link', action: 'https://ws.bndes.gov.br/cfi_catalogo/produto/04263917' },
+
+  // Itens Internos - Plataformas
+  'btn-plat-nbs': { title: 'NBS GOLD', type: 'link', action: 'http://152.67.47.29:8080/crmgold/veiculo.zul' },
+  'btn-plat-docusign': { title: 'DOCUSIGN', type: 'link', action: 'https://apps.docusign.com/send/home' },
+  'btn-plat-auto': { title: 'AUTOAVALIAR', type: 'link', action: 'https://apps.autoavaliar.com.br/login/app' },
+  'btn-plat-dugestao': { title: 'DUGESTÃO', type: 'link', action: 'https://app.dugestao.com.br/#/home' },
+  'btn-plat-duleads': { title: 'DULEADS', type: 'link', action: 'https://app.duleads.com.br/#/auth' },
+  'btn-plat-treina': { title: 'TREINAMENTOS FIAT', type: 'link', action: 'https://psa.csod.com/login/render.aspx?id=stellantistraining' },
+  'btn-plat-linkentry': { title: 'LinkEntry', type: 'link', action: 'https://linkentry-ames.fiat.com/pages/home/' },
+  'btn-plat-manuais': { title: 'Manuais do NBS', type: 'link', action: 'https://drive.google.com/drive/folders/11Oyq1zN6VKhpaDZleNjchiB-Fdp0AyPZ?usp=sharing' },
+  'btn-plat-uol': { title: 'WebMail San Marino', type: 'link', action: 'https://mailpro.uol.com.br/sanmarinofiat.com.br/' },
+
+  // Itens Internos - Cartas
+  'btn-carta-fiat': { title: 'CARTA DO MÊS (Montadora)', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/cartafiat.pdf' },
+  'btn-carta-banco': { title: 'CARTA DO MÊS (Banco)', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/cartabanco.pdf' },
+  'btn-carta-gama': { title: 'GAMA ATUALIZADA', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/gama.pdf' },
+
+  // Itens Internos - Seminovos
+  'btn-semi-estoque': { title: 'ESTOQUE DE SEMINOVOS', type: 'link', action: 'https://sanmarinomultimarcas.com.br/seminovos/' },
+  'btn-semi-repasse': { title: 'REPASSE PARA FUNCIONÁRIO', type: 'link', action: 'https://albertomateus10.github.io/termoderepassefuncionario/' },
+  'btn-semi-garantia': { title: 'GARANTIA EM DOBRO', type: 'doc', action: 'doc-contrato' },
+  'btn-semi-checklist': { title: 'CHECKLIST de ENTREGA', type: 'link', action: 'https://albertomateus10.github.io/preparacaoparaentrega/' },
+  'btn-semi-robo': { title: 'ROBÔ DE ANÚNCIOS', type: 'link', action: 'https://chatgpt.com/g/g-67b0af6b29708191982adcba7a5e3fb4-clique-aqui-e-crie-um-anuncio-para-o-seu-veiculo' },
+  'btn-semi-qrcode': { title: 'QR CODE DE PREÇOS', type: 'link', action: 'https://amcsolucoesdigitais.github.io/qrcodecompreco/' },
+  'btn-semi-aval-matriz': { title: 'AVALIAÇÃO MATRIZ', type: 'link', action: 'https://tradein.autoavaliar.com.br/group/san-marino-matriz/7508zPgjgw/0577zMjgBw?c=6775zPB' },
+  'btn-semi-aval-zs': { title: 'AVALIAÇÃO ZONA SUL', type: 'link', action: 'https://tradein.autoavaliar.com.br/group/san-marino-zona-sul/7508zPgjgw/3201zdjMgPCCAC?c=6775zPB' },
+  'btn-semi-aval-viam': { title: 'AVALIAÇÃO VIAMÃO', type: 'link', action: 'https://tradein.autoavaliar.com.br/group/san-marino-viamao/7508zPgjgw/3201zPjMgPCCAC?c=6775zPB' },
+  'btn-semi-aval-grav': { title: 'AVALIAÇÃO GRAVATAÍ', type: 'link', action: 'https://tradein.autoavaliar.com.br/group/san-marino-gravatai/7508zPgjgw/3201zMjMgPCCAC?c=6775zPB' },
+  'btn-semi-fluxo-aval': { title: 'Fluxo de Avaliação', type: 'link', action: 'https://albertomateus10.github.io/fluxodeavaliacao/' },
+  'btn-semi-checklist-prep': { title: 'Check List de Preparação', type: 'link', action: 'https://albertomateus10.github.io/solicitacaodemanutencao/' },
+  'btn-semi-fluxo-prep': { title: 'Fluxo de Manutenção', type: 'link', action: 'https://albertomateus10.github.io/fluxodepreparacao/' },
+
+  // Itens Internos - Gestor
+  'btn-gestor-nbs': { title: 'NBS SHOTCUT', type: 'link', action: 'http://144.22.144.53/' },
+  'btn-gestor-gestauto': { title: 'PORTAL GESTAUTO', type: 'link', action: 'https://portal.gestautobrasil.com.br/auth/login' },
+  'btn-gestor-autocorp': { title: 'AUTOCORP', type: 'link', action: 'https://app.autocorp.com.br/portal/Default.aspx?ReturnUrl=%2frestrito%2fpainel-controle%2fdefault.aspx' },
+  'btn-gestor-avaliacoes': { title: 'BI DE AVALIAÇÕES', type: 'link', action: 'https://albertomateus10.github.io/avaliacoes/' },
+  'btn-gestor-usados-vd': { title: 'USADOS VIA VD', type: 'link', action: 'https://albertomateus10.github.io/carteiravdusados/' },
+  'btn-gestor-anuncio-lote': { title: 'Anúncios em Lote do AutoAvaliar', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/anuncioemlote.pdf' },
+  'btn-gestor-leilao': { title: 'LEILÃO DO AUTOAVALIAR', type: 'link', action: 'https://adm.autoavaliar.com.br/index.php' },
+  'btn-gestor-contrato-compra': { title: 'CONTRATO DE COMPRA DE VEÍCULOS', type: 'link', action: 'https://albertomateus10.github.io/contratodecompradeveiculos/' },
+  'btn-gestor-consignacao': { title: 'CONTRATO DE CONSIGNAÇÃO', type: 'function', action: () => mostrarAvisoConstrucao('consignacao') },
+  'btn-gestor-procuracao-repasse': { title: 'PROCURAÇÃO DE REPASSE', type: 'link', action: 'https://albertomateus10.github.io/procuracaoderepasse/' },
+
+  // Itens Internos - Pós Vendas
+  'btn-pos-precos': { title: 'PREÇO DAS REVISÕES (Fiat)', type: 'link', action: 'https://servicos.fiat.com.br/revisao.html' },
+  'btn-pos-apoio-consultor': { title: 'APOIO AO CONSULTOR', type: 'link', action: 'https://drive.google.com/drive/folders/1dn-1v52zMjZCnBZRgHCkAdViAOBfOG2b' },
+  'btn-pos-apoio-mecanico': { title: 'APOIO AO MECÂNICO', type: 'link', action: 'https://drive.google.com/drive/folders/1alytD0dOACelokORixMLNd99Ixe77han' },
+  'btn-pos-ficha': { title: 'FICHA CADASTRAL', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/fichacadastralpecas.pdf' },
+  'btn-pos-ml': { title: 'Loja no Mercado Livre', type: 'link', action: 'https://www.mercadolivre.com.br/loja/san-marino-297048' },
+  'btn-pos-nbs-consultor': { title: 'NBS (Consultores)', type: 'link', action: 'http://144.22.144.53/' },
+  'btn-pos-nbs-parts': { title: 'NBS (CRM Parts)', type: 'link', action: 'http://152.67.47.29:8080/crmparts/app?FrmLogin' },
+  'btn-pos-manual': { title: 'MANUAL DE GARANTIA', type: 'link', action: 'https://drive.google.com/file/d/1k1Q1OsH81DSLrh8GUVHE_bJaSQ2c5iOA/view?usp=sharing' },
+  'btn-pos-normas': { title: 'NORMAS DA GARANTIA', type: 'link', action: 'https://drive.google.com/file/d/1TkonC-50z83f7yRd0YquwbzxnUrLm2vT/view?usp=sharing' },
+
+  // Itens Internos - RH
+  'btn-rh-cartilha': { title: 'CARTILHA DE INTEGRAÇÃO', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/cartilha.pdf' },
+  'btn-rh-ferias': { title: 'CARTAS DE FÉRIAS', type: 'link', action: 'https://drive.google.com/drive/folders/1sPzfiY9CRUWoITpdj0wQVnDMNx9YbIT8?usp=sharing' },
+  'btn-rh-decimo': { title: 'ADIANTAMENTO DE 13º', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/adiantamentodecimo.pdf' },
+  'btn-rh-ponto': { title: 'AJUSTE DE PONTO', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/ajusteponto.pdf' },
+  'btn-rh-vale-refeicao': { title: 'AUTORIZAÇÃO VALE REFEIÇÃO', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/cartaova.pdf' },
+  'btn-rh-vale-transporte': { title: 'AUTORIZAÇÃO VALE TRANSPORTE', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/cartaovt.pdf' },
+
+  // Itens Internos - Acessórios
+  'btn-ace-geral': { title: 'CATÁLOGO GERAL', type: 'link', action: 'https://docs.google.com/spreadsheets/d/1uyfpSzx-PHvC5CxaoBhvl0UAkOWmjinl/edit?usp=sharing&ouid=111425340034181852301&rtpof=true&sd=true' },
+  'btn-ace-fastback': { title: 'FASTBACK', type: 'link', action: 'https://drive.google.com/file/d/1qmTDng6uee5IfkempmkoLgt0b9ros-vY/view' },
+  'btn-ace-pulse': { title: 'PULSE', type: 'link', action: 'https://drive.google.com/file/d/1pUMybKyozoucig3txwNThiVpYFnTTPks/view' },
+  'btn-ace-toro': { title: 'TORO', type: 'link', action: 'https://drive.google.com/file/d/1S1X1TYLhCkPelz2BBrgWErmk1rJDzPWv/view' },
+  'btn-ace-strada': { title: 'STRADA', type: 'link', action: 'https://drive.google.com/file/d/1eiWgVvv9OdyNWqKUvuXhFUWJL6XiDXIS/view' },
+  'btn-ace-argo': { title: 'ARGO', type: 'link', action: 'https://drive.google.com/file/d/1zxKdhjsFpRCmPyFV1SSXvuxnuG5Pp-UD/view' },
+  'btn-ace-mobi': { title: 'MOBI', type: 'link', action: 'https://drive.google.com/file/d/1c1qSc5EKP59wkuikTdVub5vy_uLlsOzj/view' },
+
+  // Itens Internos - Links Úteis
+  'btn-link-fipe': { title: 'TABELA FIPE', type: 'link', action: 'https://veiculos.fipe.org.br/' },
+  'btn-link-ipva': { title: 'VALOR DE IPVA', type: 'link', action: 'https://www.sefaz.rs.gov.br/apps/ipva/principal/tabs/meus-veiculos' },
+  'btn-link-detran': { title: 'SITUAÇÃO DO DETRAN', type: 'link', action: 'https://pcsdetran.rs.gov.br/login?redirectUrl=%2Fconsulta-veiculo' },
+  'btn-link-mtix': { title: 'Download do Mtix', type: 'link', action: 'https://www.mtix.com.br/' },
+  'btn-link-contas': { title: 'CONTAS BANCÁRIAS', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/contasbancarias.pdf' },
+  'btn-link-cnpj': { title: 'CARTÃO CNPJ', type: 'link', action: 'https://drive.google.com/drive/folders/1HIzoMcC5_ElI2OhDWsG7m_IiY4j3OXV8?usp=sharing' },
+  'btn-link-wa-geral': { title: 'GERAL SAN MARINO', type: 'link', action: 'https://wa.me/555130211133' },
+  'btn-link-wa-oficina': { title: 'AGENDAMENTO OFICINA', type: 'link', action: 'https://wa.me/555191896086' },
+  'btn-link-wa-pecas': { title: 'SETOR DE PEÇAS', type: 'link', action: 'https://wa.me/555199415144' },
+  'btn-link-wa-seguros': { title: 'VENDAS DE SEGUROS', type: 'link', action: 'https://wa.me/555199601435' },
+
+  // Itens Internos - Textos
+  'btn-txt-garantia': { title: 'TEXTO GARANTIA', type: 'function', action: () => verTextoContrato('garantia') },
+  'btn-txt-sem-quitacao': { title: 'TEXTO SEM QUITAÇÃO', type: 'function', action: () => verTextoContrato('sem-quitacao-total') },
+  'btn-txt-sem-quitacao-troco': { title: 'TEXTO SEM QUITAÇÃO (TROCO)', type: 'function', action: () => verTextoContrato('sem-quitacao-troco') },
+  'btn-txt-com-quitacao': { title: 'TEXTO COM QUITAÇÃO', type: 'function', action: () => verTextoContrato('com-quitacao') },
+  'btn-txt-com-quitacao-troco': { title: 'TEXTO COM QUITAÇÃO (TROCO)', type: 'function', action: () => verTextoContrato('com-quitacao-troco') },
+  'btn-txt-acessorios': { title: 'TEXTO ACESSÓRIOS', type: 'function', action: () => verTextoContrato('acessorios') },
+  'btn-txt-retirada': { title: 'TEXTO RETIRADA', type: 'function', action: () => verTextoContrato('retirada') },
+
+  // Itens Internos - San Marino Online
+  'btn-online-fiat': { title: 'San Marino Fiat', type: 'link', action: 'https://sanmarinofiat.com.br/' },
+  'btn-online-multi': { title: 'San Marino Multimarcas', type: 'link', action: 'https://sanmarinomultimarcas.com.br/' },
+  'btn-online-insta': { title: 'Instagram', type: 'link', action: 'https://www.instagram.com/sanmarinofiat/' },
+  'btn-online-linked': { title: 'Linkedin', type: 'link', action: 'https://www.linkedin.com/company/san-marino-veiculos/posts/?feedView=all' },
+  'btn-online-face': { title: 'Facebook', type: 'link', action: 'https://www.facebook.com/sanmarinofiat/' },
 };
 
 // Inicialização: Verificar Favoritos
@@ -275,7 +412,7 @@ function alternarSecao(secao) {
   // 1. Esconder tudo
   const secoes = ['secao-home', 'secao-gerador', 'doc-calculadora', 'doc-contrato', 'doc-contrato-repasse', 'doc-links', 'secao-bancos',
     'secao-certidoes', 'secao-venda-direta', 'secao-plataformas', 'secao-cartas',
-    'secao-seminovos', 'secao-textos-contrato', 'secao-gestor', 'secao-pos-vendas', 'secao-rh', 'secao-lojas', 'secao-acessorios', 'dados-cliente-global'];
+    'secao-seminovos', 'secao-textos-contrato', 'secao-gestor', 'secao-pos-vendas', 'secao-rh', 'secao-lojas', 'secao-acessorios', 'secao-online', 'dados-cliente-global'];
   secoes.forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add('hidden');
@@ -346,7 +483,7 @@ function alternarSecao(secao) {
       searchContainer.classList.remove('active');
       btnSearch.classList.remove('search-active');
       globalSearchInput.value = '';
-      filterContent(''); // Isso agora chamará alternarSecao('home') internamente
+      filterContent(''); 
     }
   }
 }
@@ -354,16 +491,18 @@ function alternarSecao(secao) {
 /* =========================
     SISTEMA DE FAVORITOS
    ========================= */
-function toggleFavorite(secaoId) {
+function toggleFavorite(id) {
   let favorites = getFavorites();
-  const index = favorites.indexOf(secaoId);
+  const index = favorites.indexOf(id);
+  const meta = MODULE_METADATA[id];
+  const label = meta ? meta.title : id;
 
   if (index > -1) {
     favorites.splice(index, 1);
-    showToast(`${MODULE_METADATA[secaoId]?.title || secaoId} removido dos favoritos.`, 'info');
+    showToast(`${label} removido dos favoritos.`, 'info');
   } else {
-    favorites.push(secaoId);
-    showToast(`${MODULE_METADATA[secaoId]?.title || secaoId} fixado na Home!`, 'success');
+    favorites.push(id);
+    showToast(`${label} fixado na Home!`, 'success');
   }
 
   localStorage.setItem(LS_FAVORITE, JSON.stringify(favorites));
@@ -372,66 +511,78 @@ function toggleFavorite(secaoId) {
 
 function updateFavoriteUI() {
   const favorites = getFavorites();
-  const favBtns = document.querySelectorAll('.fav-btn');
-  const dynamicGrid = document.getElementById('home-grid-dinamico');
-  const homeMsg = document.getElementById('home-msg');
-  const btnFavGlobal = document.getElementById('btn-fav-global');
-
-  // 1. Atualizar Estrelas Globais (Barra Lateral e Itens)
-  favBtns.forEach(btn => {
+  
+  // 1. Atualizar Estrelas (Módulos Principais e Botões Internos)
+  // Seleciona tanto os .fav-btn quanto os novos .inner-fav-btn
+  const allFavBtns = document.querySelectorAll('.fav-btn, .inner-fav-btn');
+  
+  allFavBtns.forEach(btn => {
+    // Tenta pegar o ID do argumento da função toggleFavorite no onclick
     const onclickAttr = btn.getAttribute('onclick');
-    const isFav = favorites.some(id => onclickAttr && onclickAttr.includes(id));
-
-    if (isFav) {
-      btn.classList.add('active');
-      btn.innerHTML = '<i class="fa-solid fa-star"></i>';
-    } else {
-      btn.classList.remove('active');
-      btn.innerHTML = '<i class="fa-regular fa-star"></i>';
+    if (!onclickAttr) return;
+    
+    const match = onclickAttr.match(/toggleFavorite\(['"](.+?)['"]\)/);
+    if (match && match[1]) {
+      const id = match[1];
+      const isFav = favorites.includes(id);
+      
+      if (isFav) {
+        btn.classList.add('active');
+        btn.innerHTML = '<i class="fa-solid fa-star"></i>';
+      } else {
+        btn.classList.remove('active');
+        btn.innerHTML = '<i class="fa-regular fa-star"></i>';
+      }
     }
   });
 
   // 2. Atualizar Botão Global de Título (Reflete a seção atual)
+  const btnFavGlobal = document.getElementById('btn-fav-global');
   if (btnFavGlobal) {
     const isCurrentFav = favorites.includes(currentSectionId);
     if (isCurrentFav) {
       btnFavGlobal.classList.add('active');
       btnFavGlobal.innerHTML = '<i class="fa-solid fa-star"></i>';
       btnFavGlobal.style.color = "#00d4ff";
-      btnFavGlobal.title = "Remover dos favoritos";
     } else {
       btnFavGlobal.classList.remove('active');
       btnFavGlobal.innerHTML = '<i class="fa-regular fa-star"></i>';
       btnFavGlobal.style.color = "";
-      btnFavGlobal.title = "Fixar na Home Page";
     }
   }
 
   // 3. Renderizar Dashboard Dinâmico
+  const dynamicGrid = document.getElementById('home-grid-dinamico');
+  const homeMsg = document.getElementById('home-msg');
+  
   if (dynamicGrid) {
     if (favorites.length > 0) {
-      dynamicGrid.innerHTML = ''; // Limpar
+      dynamicGrid.innerHTML = '';
       favorites.forEach(id => {
         const meta = MODULE_METADATA[id];
         if (!meta) return;
 
-        // Tentar capturar o ícone da sidebar
-        const sidebarBtn = document.getElementById('btn-' + id);
         let iconHtml = '';
-        if (sidebarBtn) {
-          const svg = sidebarBtn.querySelector('svg');
-          if (svg) iconHtml = `<div class="h-icon" style="background: var(--accent); margin-bottom: 5px;">${svg.outerHTML}</div>`;
+        if (meta.type === 'section') {
+          const sidebarBtn = document.getElementById('btn-' + id);
+          if (sidebarBtn) {
+            const svg = sidebarBtn.querySelector('svg');
+            if (svg) iconHtml = `<div class="h-icon" style="background: var(--brand-2); margin-bottom: 5px;">${svg.outerHTML}</div>`;
+          }
+        } else {
+          // Ícone padrão para itens internos
+          const iconClass = meta.type === 'link' ? 'fa-link' : 'fa-file-lines';
+          iconHtml = `<div class="h-icon" style="background: var(--accent); margin-bottom: 5px;"><i class="fa-solid ${iconClass}"></i></div>`;
         }
 
         const card = document.createElement('div');
         card.className = 'home-card';
-        card.onclick = () => alternarSecao(id);
+        card.onclick = () => executarAcaoFavorito(id);
         
-        // Padrão visual para parênteses (cor clara)
         const formattedTitle = meta.title.replace(/\((.*?)\)/g, '<small class="muted-text">($1)</small>');
 
         card.innerHTML = `
-          <button class="fav-btn active" onclick="event.stopPropagation(); toggleFavorite('${id}')" title="Remover dos favoritos">
+          <button class="fav-btn active" onclick="event.stopPropagation(); toggleFavorite('${id}')" title="Remover">
             <i class="fa-solid fa-star"></i>
           </button>
           ${iconHtml}
@@ -442,8 +593,28 @@ function updateFavoriteUI() {
       if (homeMsg) homeMsg.textContent = "";
     } else {
       dynamicGrid.innerHTML = '';
-      if (homeMsg) homeMsg.textContent = "Selecione um módulo no menu lateral e clique na estrela (☆) no topo para fixá-lo aqui.";
+      if (homeMsg) homeMsg.textContent = "Selecione os módulos ou botões internos e clique na estrela para fixá-los aqui.";
     }
+  }
+}
+
+function executarAcaoFavorito(id) {
+  const meta = MODULE_METADATA[id];
+  if (!meta) return;
+
+  if (meta.type === 'section') {
+    alternarSecao(id);
+  } else if (meta.type === 'doc') {
+    let secaoPai = '';
+    if (id.startsWith('btn-doc-')) secaoPai = 'gerador';
+    else if (id.startsWith('btn-semi-')) secaoPai = 'seminovos';
+    
+    if (secaoPai) alternarSecao(secaoPai);
+    abrirDocumento(meta.action);
+  } else if (meta.type === 'link') {
+    window.open(meta.action, '_blank');
+  } else if (meta.type === 'function') {
+    meta.action();
   }
 }
 
