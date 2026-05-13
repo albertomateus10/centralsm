@@ -726,7 +726,7 @@
                 background: #fff;
                 border: 1px solid var(--stroke);
                 border-radius: 12px;
-                padding: 18px 22px;
+                padding: 12px 14px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -736,7 +736,7 @@
                 box-shadow: 0 2px 5px rgba(0,0,0,0.03);
                 position: relative;
                 overflow: hidden;
-                min-height: 65px;
+                min-height: 48px;
               }
               html[data-theme="dark"] .text-box-card {
                 background: rgba(255, 255, 255, 0.03);
@@ -901,27 +901,32 @@
                 </div>
 
                 <!-- 5-Quitação superior -->
-                <div class="text-box-card" onclick="verTextoContrato('quitacao-superior')">
+                <div class="text-box-card" id="btn-txt-quitacao-superior" onclick="verTextoContrato('quitacao-superior')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-txt-quitacao-superior')"><i class="fa-regular fa-star"></i></div>
                   <span>Quitação superior ao avaliado</span>
                 </div>
 
                 <!-- Bônus Fiat Lovers -->
-                <div class="text-box-card" onclick="verTextoContrato('bonus-lovers')">
+                <div class="text-box-card" id="btn-txt-bonus-lovers" onclick="verTextoContrato('bonus-lovers')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-txt-bonus-lovers')"><i class="fa-regular fa-star"></i></div>
                   <span>Bônus Fiat Lovers</span>
                 </div>
 
                 <!-- Entrega -->
-                <div class="text-box-card" onclick="verTextoContrato('entrega')">
+                <div class="text-box-card" id="btn-txt-entrega" onclick="verTextoContrato('entrega')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-txt-entrega')"><i class="fa-regular fa-star"></i></div>
                   <span>Texto de Entrega</span>
                 </div>
 
                 <!-- SPF -->
-                <div class="text-box-card" onclick="verTextoContrato('spf')">
+                <div class="text-box-card" id="btn-txt-spf" onclick="verTextoContrato('spf')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-txt-spf')"><i class="fa-regular fa-star"></i></div>
                   <span>Contrato com SPF</span>
                 </div>
 
                 <!-- Cartão com taxa -->
-                <div class="text-box-card" onclick="verTextoContrato('cartao-taxa')">
+                <div class="text-box-card" id="btn-txt-cartao-taxa" onclick="verTextoContrato('cartao-taxa')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-txt-cartao-taxa')"><i class="fa-regular fa-star"></i></div>
                   <span>Cartão de Crédito com taxa</span>
                 </div>
               </div>
