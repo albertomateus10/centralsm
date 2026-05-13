@@ -300,6 +300,7 @@ const MODULE_METADATA = {
   'btn-pos-nbs-parts': { title: 'NBS (CRM Parts)', type: 'link', action: 'http://152.67.47.29:8080/crmparts/app?FrmLogin' },
   'btn-pos-manual': { title: 'MANUAL DE GARANTIA', type: 'link', action: 'https://drive.google.com/file/d/1k1Q1OsH81DSLrh8GUVHE_bJaSQ2c5iOA/view?usp=sharing' },
   'btn-pos-normas': { title: 'NORMAS DA GARANTIA', type: 'link', action: 'https://drive.google.com/file/d/1TkonC-50z83f7yRd0YquwbzxnUrLm2vT/view?usp=sharing' },
+  'btn-pos-linkentry': { title: 'LinkEntry', type: 'link', action: 'https://linkentry-ames.fiat.com/pages/home/' },
 
   // Itens Internos - RH
   'btn-rh-cartilha': { title: 'CARTILHA DE INTEGRAÇÃO', type: 'link', action: 'https://albertomateus10.github.io/pdfsdomes/cartilha.pdf' },
@@ -582,7 +583,7 @@ function updateFavoriteUI() {
         const formattedTitle = meta.title.replace(/\((.*?)\)/g, '<small class="muted-text">($1)</small>');
 
         card.innerHTML = `
-          <button class="fav-btn active" onclick="event.stopPropagation(); toggleFavorite('${id}')" title="Remover">
+          <button class="fav-btn active" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('${id}')" title="Remover">
             <i class="fa-solid fa-star"></i>
           </button>
           ${iconHtml}
