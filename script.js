@@ -17,13 +17,27 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 
 
 async function verificarUsuario() {
-  const { data: { session } } = await supabaseClient.auth.getSession();
-  
-  if (session && !localStorage.getItem('last_login_timestamp')) {
-    localStorage.setItem('last_login_timestamp', new Date().getTime().toString());
-  }
+  try {
+    const { data: { session }, error } = await supabaseClient.auth.getSession();
+    
+    if (error) {
+      console.error('Erro de autenticação Supabase:', error);
+      if (error.message.includes('fetch')) {
+        showToast('Erro de conexão com o banco de dados. Verifique se o projeto Supabase está ativo.', 'error');
+      }
+    }
 
-  gerenciarEstadoAuth(session);
+    if (session && !localStorage.getItem('last_login_timestamp')) {
+      localStorage.setItem('last_login_timestamp', new Date().getTime().toString());
+    }
+
+    gerenciarEstadoAuth(session);
+  } catch (err) {
+    console.error('Erro crítico ao conectar ao Supabase:', err);
+    if (typeof showToast === 'function') {
+      showToast('Falha na conexão com o servidor. O projeto pode estar pausado.', 'error');
+    }
+  }
 }
 
 // Função para verificar se o e-mail está na lista de aprovados (e cadastra se não existir)
@@ -289,6 +303,8 @@ const MODULE_METADATA = {
   'btn-gestor-contrato-compra': { title: 'CONTRATO DE COMPRA DE VEÍCULOS', type: 'link', action: 'https://albertomateus10.github.io/contratodecompradeveiculos/' },
   'btn-gestor-consignacao': { title: 'CONTRATO DE CONSIGNAÇÃO', type: 'function', action: () => mostrarAvisoConstrucao('consignacao') },
   'btn-gestor-procuracao-repasse': { title: 'PROCURAÇÃO DE REPASSE', type: 'link', action: 'https://albertomateus10.github.io/procuracaoderepasse/' },
+  'btn-gestor-estoque-pecas': { title: 'ESTOQUE DE PEÇAS', type: 'link', action: 'https://albertomateus10.github.io/estoquedepecas/' },
+  'btn-gestor-analise-acessorios': { title: 'ANÁLISE DE ACESSÓRIOS VENDIDOS', type: 'link', action: 'https://albertomateus10.github.io/acessorios/' },
 
   // Itens Internos - Pós Vendas
   'btn-pos-precos': { title: 'PREÇO DAS REVISÕES (Fiat)', type: 'link', action: 'https://servicos.fiat.com.br/revisao.html' },
