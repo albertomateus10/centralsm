@@ -15,7 +15,7 @@
 
       --transition: 160ms ease;
 
-      /* EspaÃƒÂ§amentos */
+      /* EspaÃ§amentos */
       --pad-page: 18px;
       --pad-card: 16px;
       --gap: 14px;
@@ -27,14 +27,14 @@
 
       /* Brand */
       --brand: #1F3A5F;
-      /* azul petrÃƒÂ³leo */
+      /* azul petrÃ³leo */
       --brand-2: #2A5DA8;
       /* azul destaque */
       --brand-soft: rgba(42, 93, 168, .12);
       --accent: #4A90E2;
       /* azul claro */
 
-      /* Escala de FormulÃƒÂ¡rios */
+      /* Escala de FormulÃ¡rios */
       --label-size: 10px;
       --input-size: 12px;
       --input-pad-y: 6px;
@@ -672,7 +672,7 @@
       height: 16px;
     }
 
-    /* Estilos para a Busca Global no CabeÃƒÂ§alho */
+    /* Estilos para a Busca Global no CabeÃ§alho */
     .search-wrapper {
       display: flex;
       align-items: center;
@@ -1249,7 +1249,7 @@
       font-weight: 900;
     }
 
-    /* Cores dos ÃƒÂcones */
+    /* Cores dos Ãcones */
     .bg-blue {
       background: linear-gradient(135deg, #3B82F6, #1E40AF);
     }
@@ -1342,7 +1342,7 @@
       }
     }
 
-    /* Redesign da NavegaÃƒÂ§ÃƒÂ£o Principal (BotÃƒÂµes) */
+    /* Redesign da NavegaÃ§Ã£o Principal (BotÃµes) */
     .main-nav {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1502,7 +1502,7 @@
       width: 100%;
     }
 
-    /* ===== NOME DO DOCUMENTO COM CARA DE BOTÃƒÆ’O (PILL PREMIUM) ===== */
+    /* ===== NOME DO DOCUMENTO COM CARA DE BOTÃƒO (PILL PREMIUM) ===== */
     .cover-doc-pill {
       display: inline-flex;
       align-items: center;
@@ -1584,7 +1584,7 @@
       border-color: rgba(251, 191, 36, 0.30);
     }
 
-    /* cores do nome-pÃƒÂ­lula na capa */
+    /* cores do nome-pÃ­lula na capa */
     .cover-doc-acordo {
       color: #166534;
       background: rgba(34, 197, 94, 0.10);
@@ -1635,14 +1635,14 @@
       box-shadow: 0 4px 12px rgba(29, 78, 137, 0.08);
     }
 
-    /* ===== DEPÃƒâ€œSITO PARA TERCEIROS ===== */
+    /* ===== DEPÃ“SITO PARA TERCEIROS ===== */
     .pill-dep {
       color: #0f172a;
       background: rgba(148, 163, 184, 0.16);
       border-color: rgba(148, 163, 184, 0.35);
     }
 
-    /* Estilos de cor padrÃƒÂ£o para o texto interno */
+    /* Estilos de cor padrÃ£o para o texto interno */
     .cover-btn .cover-doc-pill {
       color: var(--text);
     }
@@ -1652,21 +1652,21 @@
     }
 
 
-    /* cores do tÃƒÂ­tulo (mantidos nos cards internos) */
+    /* cores do tÃ­tulo (mantidos nos cards internos) */
     .doc-title-dep {
       color: #0f172a;
       background: rgba(148, 163, 184, 0.14);
       border-color: rgba(148, 163, 184, 0.36);
     }
 
-    /* cores do tÃƒÂ­tulo */
+    /* cores do tÃ­tulo */
     .doc-title-dep {
       color: #0f172a;
       background: rgba(148, 163, 184, 0.14);
       border-color: rgba(148, 163, 184, 0.36);
     }
 
-    /* botÃƒÂ£o */
+    /* botÃ£o */
     .btn-deposito {
       background: linear-gradient(135deg, #334155, #64748b);
     }
@@ -1757,7 +1757,7 @@
       border-bottom: 1px dashed rgba(229, 231, 235, 0.9);
     }
 
-    /* ===== TÃƒÂTULO NO ESTILO "BOTÃƒÆ’O" ===== */
+    /* ===== TÃTULO NO ESTILO "BOTÃƒO" ===== */
     .doc-title-pill {
       display: inline-flex;
       align-items: center;
@@ -2259,7 +2259,7 @@
       border-bottom: 0;
     }
 
-    /* CentralizaÃƒÂ§ÃƒÂ£o das colunas da calculadora (mantÃƒÂ©m a 1Ã‚Âª coluna ÃƒÂ  esquerda) */
+    /* CentralizaÃ§Ã£o das colunas da calculadora (mantÃ©m a 1Âª coluna Ã  esquerda) */
     .calc-sheet thead th,
     .calc-sheet tbody td {
       text-align: center;
@@ -2542,7 +2542,7 @@
       line-height: 1.5;
     }
 
-    /* ===== ESTILOS ORÃƒâ€¡AMENTO DETRAN (LUXURY) ===== */
+    /* ===== ESTILOS ORÃ‡AMENTO DETRAN (LUXURY) ===== */
     .orc-card {
       max-width: 950px;
       margin: 0 auto;
@@ -2807,7 +2807,7 @@
       }
     }
 
-    /* ===== ESTILOS LINKS ÃƒÅ¡TEIS (CORES ELEGANTES) ===== */
+    /* ===== ESTILOS LINKS ÃšTEIS (CORES ELEGANTES) ===== */
     .link-section-estoques .section-title {
       color: #1e3a8a !important;
     }
@@ -2925,18 +2925,18 @@
       border-color: #7c2d12 !important;
     }
 
-    /* Estilo de Card para as seÃƒÂ§ÃƒÂµes de Links ÃƒÅ¡teis */
+    /* Estilo de Card para as seÃ§Ãµes de Links Ãšteis */
     .link-section {
       background: #ffffff;
       border: 2px solid #9ca3af;
-      /* Cinza MÃƒÂ©dio Calmo */
+      /* Cinza MÃ©dio Calmo */
       border-radius: 20px;
       padding: 20px;
       margin-bottom: 25px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
 
-    /* RemoÃƒÂ§ÃƒÂ£o de contorno para seÃƒÂ§ÃƒÂµes especÃƒÂ­ficas solicitadas */
+    /* RemoÃ§Ã£o de contorno para seÃ§Ãµes especÃ­ficas solicitadas */
     #doc-calculadora,
     #doc-links,
     #doc-links .link-section,
@@ -2945,7 +2945,7 @@
       box-shadow: none !important;
       padding: 10px 0 !important;
       overflow-x: auto;
-      /* Garante que tabelas internas tenham scroll prÃƒÂ³prio */
+      /* Garante que tabelas internas tenham scroll prÃ³prio */
       -webkit-overflow-scrolling: touch;
     }
 
@@ -2964,7 +2964,7 @@
       }
     }
 
-    /* Estilos de ValidaÃƒÂ§ÃƒÂ£o */
+    /* Estilos de ValidaÃ§Ã£o */
     .validation-error {
       color: #dc2626;
       font-size: 10px;
@@ -2983,7 +2983,7 @@
       box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1) !important;
     }
 
-    /* ===== SISTEMA DE NOTIFICAÃƒâ€¡Ãƒâ€¢ES (PREMIUM TOASTS) ===== */
+    /* ===== SISTEMA DE NOTIFICAÃ‡Ã•ES (PREMIUM TOASTS) ===== */
     #toast-container {
       position: fixed;
       top: 24px;
@@ -3277,7 +3277,7 @@
       margin-left: 4px;
     }
 
-    /* SeparaÃ§Ã£o Visual das Categorias em Links Ãšteis */
+    /* Separação Visual das Categorias em Links Úteis */
     .category-group {
       margin-bottom: 24px;
       padding: 20px;
@@ -3297,7 +3297,7 @@
       margin-bottom: 0;
     }
 /* =========================
-   MODAL AVISO CONSTRUÃ‡ÃƒO
+   MODAL AVISO CONSTRUÇÃO
    ========================= */
 .modal-overlay {
   position: fixed;
@@ -3420,39 +3420,4 @@
   0% { transform: scale(1); opacity: 0.4; }
   100% { transform: scale(2.5); opacity: 0; }
 }
-
-
-
-/* NOVOS ESTILOS PADRONIZADOS */
-.cover-btn, .text-box-card { position: relative; width: 100%; min-height: 48px; border: 1px solid var(--stroke); border-radius: 12px; padding: 12px 48px 12px 14px; background: var(--surface); cursor: pointer; display: flex; align-items: center; justify-content: center; text-align: center; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
-.cover-btn:hover, .text-box-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); border-color: var(--brand); background: var(--brand-soft); }
-.cover-btn span, .cover-btn .cover-doc-pill, .text-box-card span { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
-.inner-fav-btn { position: absolute; top: 50% !important; right: 12px !important; transform: translateY(-50%) !important; width: 32px !important; height: 32px !important; border-radius: 10px !important; font-size: 14px !important; display: grid !important; place-items: center !important; }
-.inner-fav-btn:hover { transform: translateY(-50%) scale(1.1) !important; }
-
-
-.text-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 15px; padding: 10px; margin-top: 20px; }
-@media (max-width: 600px) {
-  .text-grid {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
-    padding: 5px !important;
-  }
-}
-.text-viewer-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s; }
-.text-viewer-modal.active { opacity: 1; visibility: visible; }
-.text-viewer-content { background: var(--surface); width: 90%; max-width: 600px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transform: scale(0.9); transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); overflow: hidden; border: 1px solid var(--stroke); }
-.text-viewer-modal.active .text-viewer-content { transform: scale(1); }
-.text-viewer-header { padding: 20px 25px; border-bottom: 1px solid var(--stroke); display: flex; align-items: center; justify-content: space-between; background: var(--brand-soft); }
-.text-viewer-header h3 { margin: 0; font-size: 16px; color: var(--brand); font-weight: 700; }
-.text-viewer-body { padding: 30px; max-height: 60vh; overflow-y: auto; }
-.text-viewer-text { font-size: 14px; line-height: 1.7; color: var(--text); white-space: pre-wrap; margin: 0; background: var(--bg); padding: 20px; border-radius: 12px; border: 1px solid var(--stroke); }
-.text-viewer-footer { padding: 20px 25px; border-top: 1px solid var(--stroke); display: flex; justify-content: flex-end; gap: 12px; }
-.btn-modal-copy { background: var(--brand); color: #fff; border: none; padding: 10px 25px; border-radius: 10px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
-.btn-modal-copy:hover { transform: scale(1.03); opacity: 0.9; }
-.btn-modal-close { background: var(--stroke); color: var(--text); border: none; padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; }
-
-
-/* ESTILO PARA ÍCONE DO WHATSAPP */
-.fa-whatsapp { color: #25D366 !important; margin-right: 4px; }
 
