@@ -861,11 +861,12 @@
     .category-group {
       border: 1px solid var(--stroke);
       border-radius: var(--radius-xl);
-      padding: 24px 20px;
-      margin-bottom: 25px;
+      padding: 32px 24px;
+      margin: 0 auto 30px auto;
       background: #ffffff;
       box-shadow: var(--shadow-sm);
       transition: all var(--transition);
+      max-width: 900px;
     }
 
     .category-group:hover {
