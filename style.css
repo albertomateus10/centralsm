@@ -3521,3 +3521,43 @@
 /* ESTILO PARA ÍCONE DO WHATSAPP */
 .fa-whatsapp { color: #25D366 !important; margin-right: 4px; }
 
+
+/* CORES DOS BOTÕES SOCIAIS - SAN MARINO ONLINE */
+#btn-online-insta {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2397 75%, #ad38e7 100%) !important;
+  border-color: transparent !important;
+}
+#btn-online-face {
+  background: #1877F2 !important;
+  border-color: transparent !important;
+}
+#btn-online-linked {
+  background: #0077B5 !important;
+  border-color: transparent !important;
+}
+#btn-online-yt {
+  background: #FF0000 !important;
+  border-color: transparent !important;
+}
+
+/* Garante que o texto e ícones fiquem brancos nos botões sociais */
+#btn-online-insta .cover-doc-pill, 
+#btn-online-face .cover-doc-pill, 
+#btn-online-linked .cover-doc-pill,
+#btn-online-yt .cover-doc-pill,
+#btn-online-insta i, 
+#btn-online-face i, 
+#btn-online-linked i,
+#btn-online-yt i {
+  color: #ffffff !important;
+}
+
+/* Mantém a estrela de favoritos legível nos fundos coloridos */
+#btn-online-insta .inner-fav-btn,
+#btn-online-face .inner-fav-btn,
+#btn-online-linked .inner-fav-btn {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #64748b !important;
+}
+
