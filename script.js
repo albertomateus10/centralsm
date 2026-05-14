@@ -305,6 +305,7 @@ const MODULE_METADATA = {
   'btn-gestor-procuracao-repasse': { title: 'PROCURAÇÃO DE REPASSE', type: 'link', action: 'https://albertomateus10.github.io/procuracaoderepasse/' },
   'btn-gestor-estoque-pecas': { title: 'ESTOQUE DE PEÇAS', type: 'link', action: 'https://albertomateus10.github.io/estoquedepecas/' },
   'btn-gestor-analise-acessorios': { title: 'ANÁLISE DE ACESSÓRIOS VENDIDOS', type: 'link', action: 'https://albertomateus10.github.io/acessorios/' },
+  'btn-gestor-painel-ml': { title: 'Painel Mercado Livre', type: 'link', action: 'https://admin.goparts.com.br/login' },
 
   // Itens Internos - Pós Vendas
   'btn-pos-precos': { title: 'PREÇO DAS REVISÕES (Fiat)', type: 'link', action: 'https://servicos.fiat.com.br/revisao.html' },
@@ -404,8 +405,8 @@ document.getElementById("sidebar-overlay").addEventListener("click", () => {
 const subtitles = {
   "gerador": "clique nos links abaixo para confeccionar o documento desejado, os dados do cliente você não precisa preencher em todos os documentos, apenas uma vez",
   "": "",
-  "bancos": "clique nos botões abaixo para acessar a financeira desejada",
-  "certidoes": "clique nos botões abaixo para emitir a certidão desejada",
+  "bancos": "",
+  "certidoes": "",
   "venda-direta": "",
   "plataformas": "",
   "cartas": "",
@@ -414,7 +415,7 @@ const subtitles = {
   "pos-vendas": "",
   "rh": "clique nos botões abaixo para visualizar os documentos de RH",
   "lojas": "",
-  "gestor": "clique nos botões abaixo para acessar as ferramentas de apoio ao gestor",
+  "gestor": "",
   "acessorios": "clique nos botões abaixo para visualizar o catálogo desejado",
   "links": "",
 
