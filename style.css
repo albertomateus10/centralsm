@@ -16,7 +16,7 @@
       --transition: 160ms ease;
 
       /* EspaÃƒÂ§amentos */
-      --pad-page: 18px;
+      --pad-page: 10px;
       --pad-card: 16px;
       --gap: 14px;
 
@@ -109,19 +109,20 @@
     .app {
       min-height: 100vh;
       background: var(--glow);
-      padding: var(--pad-page);
+      padding: 0;
     }
 
     /* =========================
        LAYOUT GRID
        ========================= */
     .shell {
-      max-width: 1280px;
-      margin: 0 auto;
+      width: 100%;
+      margin: 0;
       display: grid;
       grid-template-columns: var(--sidebar-w) 1fr;
       gap: var(--gap);
       align-items: stretch;
+      padding: 10px;
     }
 
     .shell.collapsed {
@@ -378,8 +379,8 @@
       position: absolute;
       top: 6px;
       right: 6px;
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 8px;
       border: 1px solid var(--stroke);
       background: var(--surface);
@@ -389,7 +390,7 @@
       place-items: center;
       transition: all 0.2s;
       z-index: 10;
-      font-size: 10px;
+      font-size: 7.5px;
     }
 
     .inner-fav-btn:hover {
@@ -601,7 +602,7 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      padding: 16px 6px 24px;
+      padding: 8px 6px 12px;
       text-align: center;
     }
 
@@ -1096,7 +1097,7 @@
        ========================= */
     .home-hero {
       text-align: center;
-      padding: 40px 20px;
+      padding: 10px 20px 30px;
       margin-bottom: 20px;
       animation: fadeIn 0.8s ease;
     }
@@ -1134,7 +1135,7 @@
 
     .home-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 15px;
       padding: 10px;
     }
@@ -1144,7 +1145,7 @@
       background: var(--surface);
       border: 1px solid rgba(0, 0, 0, 0.12);
       border-radius: var(--radius-lg);
-      padding: 10px 8px;
+      padding: 4px;
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -1154,7 +1155,7 @@
       text-align: center;
       align-items: center;
       justify-content: center;
-      min-height: 80px;
+      min-height: 64px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
 
@@ -1174,8 +1175,8 @@
     }
 
     .h-icon {
-      width: 32px;
-      height: 32px;
+      width: 26px;
+      height: 26px;
       border-radius: 9px;
       display: grid;
       place-items: center;
@@ -1195,7 +1196,7 @@
     }
 
     .home-card strong {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text);
       line-height: 1.2;
@@ -1218,8 +1219,8 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       border-radius: 10px;
       border: 1px solid var(--stroke);
       background: var(--surface);
@@ -1229,6 +1230,7 @@
       place-items: center;
       transition: all 0.2s;
       z-index: 5;
+      font-size: 8px;
     }
 
     .fav-btn:hover {
@@ -3427,7 +3429,7 @@
 .cover-btn, .text-box-card { position: relative; width: 100%; min-height: 48px; border: 1px solid var(--stroke); border-radius: 12px; padding: 12px 48px 12px 14px; background: var(--surface); cursor: pointer; display: flex; align-items: center; justify-content: center; text-align: center; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
 .cover-btn:hover, .text-box-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); border-color: var(--brand); background: var(--brand-soft); }
 .cover-btn span, .cover-btn .cover-doc-pill, .text-box-card span { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
-.inner-fav-btn { position: absolute; top: 50% !important; right: 12px !important; transform: translateY(-50%) !important; width: 32px !important; height: 32px !important; border-radius: 10px !important; font-size: 14px !important; display: grid !important; place-items: center !important; }
+.inner-fav-btn { position: absolute; top: 50% !important; right: 12px !important; transform: translateY(-50%) !important; width: 28px !important; height: 28px !important; border-radius: 10px !important; font-size: 9px !important; display: grid !important; place-items: center !important; }
 .inner-fav-btn:hover { transform: translateY(-50%) scale(1.1) !important; }
 
 
