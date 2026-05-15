@@ -487,11 +487,11 @@
        NAV GROUP (FERRAMENTAS)
        ========================= */
     .nav-group {
-      margin: 8px 0;
+      margin: 0;
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 8px;
       position: relative;
     }
 

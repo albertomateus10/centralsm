@@ -306,6 +306,7 @@ const MODULE_METADATA = {
   'btn-gestor-estoque-pecas': { title: 'ESTOQUE DE PEÇAS', type: 'link', action: 'https://albertomateus10.github.io/estoquedepecas/' },
   'btn-gestor-analise-acessorios': { title: 'ANÁLISE DE ACESSÓRIOS VENDIDOS', type: 'link', action: 'https://albertomateus10.github.io/acessorios/' },
   'btn-gestor-painel-ml': { title: 'Painel Mercado Livre', type: 'link', action: 'https://admin.goparts.com.br/login' },
+  'btn-gestor-auditoria-swat': { title: 'Auditoria de Garantia (Swat)', type: 'link', action: 'https://swat.aks.fcagroup.com/' },
 
   // Itens Internos - Pós Vendas
   'btn-pos-precos': { title: 'PREÇO DAS REVISÕES (Fiat)', type: 'link', action: 'https://servicos.fiat.com.br/revisao.html' },
