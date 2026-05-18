@@ -605,22 +605,49 @@
 
           <!-- Seção: Cartas do Mês (Submenu) -->
           <div class="cover hidden col-12" id="secao-cartas" style="margin-top: 20px;">
-            <div class="cover-grid" style="max-width: 900px; margin: 0 auto;">
-              <a href="https://albertomateus10.github.io/pdfsdomes/cartafiat.pdf" target="_blank" class="cover-btn" id="btn-carta-fiat"
-                style="text-decoration: none;">
-                <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-carta-fiat')"><i class="fa-regular fa-star"></i></div>
-                <div class="cover-doc-pill">Carta do mês <span class="muted-text">(Montadora)</span></div>
-              </a>
-              <a href="https://albertomateus10.github.io/pdfsdomes/cartabanco.pdf" target="_blank" class="cover-btn" id="btn-carta-banco"
-                style="text-decoration: none;">
-                <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-carta-banco')"><i class="fa-regular fa-star"></i></div>
-                <div class="cover-doc-pill">Carta do mês <span class="muted-text">(Banco)</span></div>
-              </a>
-              <a href="https://albertomateus10.github.io/pdfsdomes/gama.pdf" target="_blank" class="cover-btn" id="btn-carta-gama"
-                style="text-decoration: none;">
-                <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-carta-gama')"><i class="fa-regular fa-star"></i></div>
-                <div class="cover-doc-pill">GAMA atualizada</div>
-              </a>
+            <div style="height: 10px;"></div>
+
+            <div class="category-group">
+              <div class="elegant-subtitle" style="margin-bottom: 15px;">Material da Montadora e Bancos</div>
+              <div class="cover-grid" style="max-width: 900px; margin: 0 auto;">
+                <a href="https://albertomateus10.github.io/pdfsdomes/cartafiat.pdf" target="_blank" class="cover-btn" id="btn-carta-fiat"
+                  style="text-decoration: none;">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-carta-fiat')"><i class="fa-regular fa-star"></i></div>
+                  <div class="cover-doc-pill">Carta do mês <span class="muted-text">(Montadora)</span></div>
+                </a>
+                <a href="https://albertomateus10.github.io/pdfsdomes/cartabanco.pdf" target="_blank" class="cover-btn" id="btn-carta-banco"
+                  style="text-decoration: none;">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-carta-banco')"><i class="fa-regular fa-star"></i></div>
+                  <div class="cover-doc-pill">Carta do mês <span class="muted-text">(Banco)</span></div>
+                </a>
+                <a href="https://albertomateus10.github.io/pdfsdomes/gama.pdf" target="_blank" class="cover-btn" id="btn-carta-gama"
+                  style="text-decoration: none;">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-carta-gama')"><i class="fa-regular fa-star"></i></div>
+                  <div class="cover-doc-pill">GAMA atualizada</div>
+                </a>
+              </div>
+            </div>
+
+            <div class="category-group">
+              <div class="elegant-subtitle" style="margin-bottom: 15px;">CheckLists de Venda</div>
+              <div class="cover-grid" style="max-width: 900px; margin: 0 auto;">
+                <button class="cover-btn" id="btn-chk-avista" type="button" onclick="verTextoContrato('chk-avista')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-chk-avista')"><i class="fa-regular fa-star"></i></div>
+                  <div class="cover-doc-pill">A vista</div>
+                </button>
+                <button class="cover-btn" id="btn-chk-dinheiro-usado" type="button" onclick="verTextoContrato('chk-dinheiro-usado')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-chk-dinheiro-usado')"><i class="fa-regular fa-star"></i></div>
+                  <div class="cover-doc-pill">Dinheiro e com usado na troca</div>
+                </button>
+                <button class="cover-btn" id="btn-chk-financiamento-usado" type="button" onclick="verTextoContrato('chk-financiamento-usado')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-chk-financiamento-usado')"><i class="fa-regular fa-star"></i></div>
+                  <div class="cover-doc-pill">Financiamento e usado na troca</div>
+                </button>
+                <button class="cover-btn" id="btn-chk-dinheiro-financiamento" type="button" onclick="verTextoContrato('chk-dinheiro-financiamento')">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-chk-dinheiro-financiamento')"><i class="fa-regular fa-star"></i></div>
+                  <div class="cover-doc-pill">Dinheiro e financiamento</div>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -641,10 +668,7 @@
                   <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-semi-repasse')"><i class="fa-regular fa-star"></i></div>
                   <div class="cover-doc-pill">Termo de Repasse para funcionário</div>
                 </a>
-                <button class="cover-btn" id="btn-semi-garantia" type="button" onclick="abrirDocumento('doc-contrato')">
-                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-semi-garantia')"><i class="fa-regular fa-star"></i></div>
-                  <div class="cover-doc-pill">Texto Garantia em Dobro</div>
-                </button>
+
                 <a href="https://albertomateus10.github.io/preparacaoparaentrega/" target="_blank" class="cover-btn" id="btn-semi-checklist"
                   style="text-decoration: none;">
                   <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-semi-checklist')"><i class="fa-regular fa-star"></i></div>
@@ -841,6 +865,22 @@
                 'cartao-taxa': {
                   title: 'Cartão de Crédito com taxa',
                   content: 'CLIENTE PAGA R$_____,00 NO CARTÃO EM __ X SENDO R$_____,00 REFERENTE A (IPVA, Emplacamento, Entrada e etc …) E R$____,00 REFERENTE A TAXA ADM DO CARTÃO, CLIENTE CONCORDA COM A TAXA.'
+                },
+                'chk-avista': {
+                  title: 'A vista',
+                  content: 'Checklist (Em construção...)'
+                },
+                'chk-dinheiro-usado': {
+                  title: 'Dinheiro e com usado na troca',
+                  content: 'Checklist (Em construção...)'
+                },
+                'chk-financiamento-usado': {
+                  title: 'Financiamento e usado na troca',
+                  content: 'Checklist (Em construção...)'
+                },
+                'chk-dinheiro-financiamento': {
+                  title: 'Dinheiro e financiamento',
+                  content: 'Checklist (Em construção...)'
                 }
               };
 
@@ -956,6 +996,11 @@
                   style="text-decoration: none;">
                   <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-gestor-auditoria-swat')"><i class="fa-regular fa-star"></i></div>
                   <div class="cover-doc-pill">Auditoria de Garantia (Swat)</div>
+                </a>
+                <a href="https://drive.google.com/file/d/1TNe6s0vzLVi2HgFJHTQlFxQU5yXVBhuT/view?usp=sharing" target="_blank" class="cover-btn" id="btn-gestor-witech2"
+                  style="text-decoration: none;">
+                  <div class="inner-fav-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite('btn-gestor-witech2')"><i class="fa-regular fa-star"></i></div>
+                  <div class="cover-doc-pill">Manual do WITech2</div>
                 </a>
               </div>
             </div>

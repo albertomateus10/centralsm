@@ -280,7 +280,6 @@ const MODULE_METADATA = {
   // Itens Internos - Seminovos
   'btn-semi-estoque': { title: 'ESTOQUE DE SEMINOVOS', type: 'link', action: 'https://sanmarinomultimarcas.com.br/seminovos/' },
   'btn-semi-repasse': { title: 'REPASSE PARA FUNCIONÁRIO', type: 'link', action: 'https://albertomateus10.github.io/termoderepassefuncionario/' },
-  'btn-semi-garantia': { title: 'GARANTIA EM DOBRO', type: 'doc', action: 'doc-contrato' },
   'btn-semi-checklist': { title: 'CHECKLIST de ENTREGA', type: 'link', action: 'https://albertomateus10.github.io/preparacaoparaentrega/' },
   'btn-semi-robo': { title: 'ROBÔ DE ANÚNCIOS', type: 'link', action: 'https://chatgpt.com/g/g-67b0af6b29708191982adcba7a5e3fb4-clique-aqui-e-crie-um-anuncio-para-o-seu-veiculo' },
   'btn-semi-qrcode': { title: 'QR CODE DE PREÇOS', type: 'link', action: 'https://amcsolucoesdigitais.github.io/qrcodecompreco/' },
@@ -307,6 +306,7 @@ const MODULE_METADATA = {
   'btn-gestor-analise-acessorios': { title: 'ANÁLISE DE ACESSÓRIOS VENDIDOS', type: 'link', action: 'https://albertomateus10.github.io/acessorios/' },
   'btn-gestor-painel-ml': { title: 'Painel Mercado Livre', type: 'link', action: 'https://admin.goparts.com.br/login' },
   'btn-gestor-auditoria-swat': { title: 'Auditoria de Garantia (Swat)', type: 'link', action: 'https://swat.aks.fcagroup.com/' },
+  'btn-gestor-witech2': { title: 'Manual do WITech2', type: 'link', action: 'https://drive.google.com/file/d/1TNe6s0vzLVi2HgFJHTQlFxQU5yXVBhuT/view?usp=sharing' },
 
   // Itens Internos - Pós Vendas
   'btn-pos-precos': { title: 'PREÇO DAS REVISÕES (Fiat)', type: 'link', action: 'https://servicos.fiat.com.br/revisao.html' },
@@ -357,6 +357,12 @@ const MODULE_METADATA = {
   'btn-txt-com-quitacao-troco': { title: 'TEXTO COM QUITAÇÃO (TROCO)', type: 'function', action: () => verTextoContrato('com-quitacao-troco') },
   'btn-txt-acessorios': { title: 'TEXTO ACESSÓRIOS', type: 'function', action: () => verTextoContrato('acessorios') },
   'btn-txt-retirada': { title: 'TEXTO RETIRADA', type: 'function', action: () => verTextoContrato('retirada') },
+
+  // Itens Internos - Checklists de Venda
+  'btn-chk-avista': { title: 'CHECKLIST: A VISTA', type: 'function', action: () => verTextoContrato('chk-avista') },
+  'btn-chk-dinheiro-usado': { title: 'CHECKLIST: DINHEIRO E COM USADO NA TROCA', type: 'function', action: () => verTextoContrato('chk-dinheiro-usado') },
+  'btn-chk-financiamento-usado': { title: 'CHECKLIST: FINANCIAMENTO E USADO NA TROCA', type: 'function', action: () => verTextoContrato('chk-financiamento-usado') },
+  'btn-chk-dinheiro-financiamento': { title: 'CHECKLIST: DINHEIRO E FINANCIAMENTO', type: 'function', action: () => verTextoContrato('chk-dinheiro-financiamento') },
 
   // Itens Internos - San Marino Online
   'btn-online-fiat': { title: 'San Marino Fiat', type: 'link', action: 'https://sanmarinofiat.com.br/' },
